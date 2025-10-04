@@ -1,4 +1,6 @@
-// ignore_for_file: invalid_annotation_target, always_put_required_named_parameters_first
+// Ignore invalid_annotation_target warnings from freezed-generated code
+// ignore_for_file: invalid_annotation_target
+// ignore_for_file: always_put_required_named_parameters_first
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tos_dart_sdk/src/data_transfer_objects/dtos.dart';

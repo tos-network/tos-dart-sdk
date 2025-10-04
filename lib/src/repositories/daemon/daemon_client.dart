@@ -143,6 +143,7 @@ class DaemonClient extends RpcClientRepository {
   /// Triggers callbacks for a specific event.
   void _triggerCallbacks(TosJsonKey event, dynamic parameter) {
     for (final callback in eventsCallbacks[event]!) {
+      // Dynamic call is necessary here as callbacks have varying signatures
       // ignore: avoid_dynamic_calls
       callback(parameter);
     }

@@ -96,9 +96,11 @@ class WalletClient extends RpcClientRepository {
   void _triggerCallbacks(TosJsonKey event, dynamic parameter) {
     for (final callback in eventsCallbacks[event]!) {
       if (parameter != null) {
+        // Dynamic call is necessary as callbacks have varying signatures
         // ignore: avoid_dynamic_calls
         callback(parameter);
       } else {
+        // Dynamic call is necessary as callbacks have varying signatures
         // ignore: avoid_dynamic_calls
         callback();
       }

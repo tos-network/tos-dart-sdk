@@ -365,7 +365,6 @@ extension DaemonRpcMethodsExtension on DaemonClient {
   /// Retrieve all peers connected
   Future<GetPeersResult> getPeers() async {
     final result = await sendRequest(DaemonMethod.getPeers);
-    print(result);
     return GetPeersResult.fromJson(result as Map<String, dynamic>);
   }
 
@@ -559,7 +558,8 @@ extension DaemonRpcMethodsExtension on DaemonClient {
     return GetMultisigResult.fromJson(result as Map<String, dynamic>);
   }
 
-  /// Retrieve the latest multisig information for a specific address at a specific topoheight.
+  /// Retrieve the latest multisig information for a specific address at a
+  /// specific topoheight.
   Future<GetMultisigAtTopoheightResult> getMultisigAtTopoheight(
     GetMultisigAtTopoheightParams getMultisigAtTopoheightParams,
   ) async {
@@ -604,7 +604,8 @@ extension DaemonRpcMethodsExtension on DaemonClient {
     return FeeRatesEstimated.fromJson(result as Map<String, dynamic>);
   }
 
-  /// Retrieve the contract outputs that have occurred in the requested transaction hash.
+  /// Retrieve the contract outputs that have occurred in the requested
+  /// transaction hash.
   ///
   /// It contains, the refunded gas amount, exit code and transfers.
   Future<List<Map<String, dynamic>>> getContractOutputs(

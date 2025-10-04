@@ -133,7 +133,8 @@ extension WalletRpcMethodsExtension on WalletClient {
     return TransactionWalletResponse.fromJson(result as Map<String, dynamic>);
   }
 
-  /// Build a transaction offline in the wallet by providing directly exact balances and reference.
+  /// Build a transaction offline in the wallet by providing directly exact
+  /// balances and reference.
   ///
   /// It cannot be broadcasted to the network.
   Future<TransactionWalletResponse> buildTransactionOffline(
@@ -147,7 +148,8 @@ extension WalletRpcMethodsExtension on WalletClient {
   }
 
   /// Build a transaction without signing it.
-  /// This is useful in case of a MultiSig setup where you need to sign the transaction with other signers.
+  /// This is useful in case of a MultiSig setup where you need to sign the
+  /// transaction with other signers.
   Future<UnsignedTransactionResponse> buildUnsignedTransaction(
     BuildUnsignedTransactionParams buildUnsignedTransactionParams,
   ) async {
@@ -159,7 +161,8 @@ extension WalletRpcMethodsExtension on WalletClient {
   }
 
   /// Sign an unsigned transaction hash with the wallet key pair.
-  /// This is useful in case you are a part of the multisig of another wallet and you need to sign a transaction.
+  /// This is useful in case you are a part of the multisig of another wallet
+  /// and you need to sign a transaction.
   Future<SignatureId> signUnsignedTransaction(
     SignUnsignedTransactionParams signUnsignedTransactionParams,
   ) async {

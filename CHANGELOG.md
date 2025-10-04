@@ -1,3 +1,15 @@
+## 0.29.1
+
+Code quality improvements and dependency updates:
+
+- Upgrade very_good_analysis from 9.0.0 to 10.0.0 (supports Dart 3.9.0)
+- Upgrade GitHub Actions checkout from v4 to v5
+- Fix all lint issues: add documentation for ignore directives, fix line length violations
+- Fix Future type inference warning in example code
+- Fix discarded futures by wrapping with unawaited()
+- Remove debug print statement from library code
+- Add assert message for better error reporting
+
 ## 0.29.0
 
 Wallet API upgrade :

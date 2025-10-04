@@ -179,7 +179,8 @@ enum DaemonMethod implements TosJsonKey {
   /// Retrieve the latest multisig information for a specific address.
   getMultisig('get_multisig'),
 
-  /// Retrieve the latest multisig information for a specific address at a specific topoheight.
+  /// Retrieve the latest multisig information for a specific address at a
+  /// specific topoheight.
   getMultisigAtTopoheight('get_multisig_at_topoheight'),
 
   /// Verify if the address has a multisig setup.
@@ -194,7 +195,8 @@ enum DaemonMethod implements TosJsonKey {
   /// Get the estimated fee rates.
   getEstimatedFeeRates('get_estimated_fee_rates'),
 
-  /// Retrieve the contract outputs that have occurred in the requested transaction hash.
+  /// Retrieve the contract outputs that have occurred in the requested
+  /// transaction hash.
   ///
   /// It contains, the refunded gas amount, exit code and transfers.
   getContractOutputs('get_contract_outputs'),

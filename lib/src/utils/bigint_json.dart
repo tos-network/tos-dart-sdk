@@ -72,7 +72,7 @@ base class _BigIntJsonReader
     if (key != null) sink.addKey(key);
     final copy = reader.copy();
     final source = reader.expectAnyValueSource().toString();
-    assert(source.isNotEmpty);
+    assert(source.isNotEmpty, 'Source string must not be empty for parsing');
     final result = BigInt.tryParse(source);
     if (result != null) {
       sink.addSourceValue(result);

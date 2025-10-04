@@ -1,3 +1,7 @@
+// Example code demonstrating SDK usage - print statements acceptable
+// ignore_for_file: avoid_print, cascade_invocations
+// ignore_for_file: avoid_catches_without_on_clauses
+
 import 'dart:io';
 
 import 'package:tos_dart_sdk/tos_dart_sdk.dart';
@@ -11,15 +15,10 @@ Future<void> main() async {
       secureWebSocket: false,
     );
 
-    // You must initiate the connection first.
-    daemonClient.connect();
-
-    // You can use the repository to make requests to the daemon.
-    final res = await daemonClient.getInfo();
-    print('result: $res');
-
-    // You can also use the repository to listen to events.
+    // You must initiate the connection first and set up event listeners.
     daemonClient
+      ..connect()
+      // You can also use the repository to listen to events.
       ..onNewBlock((block) {
         print('new block: $block');
       })
@@ -54,8 +53,12 @@ Future<void> main() async {
         print('channel error: $error');
       });
 
+    // You can use the repository to make requests to the daemon.
+    final res = await daemonClient.getInfo();
+    print('result: $res');
+
     // Close connection and exit
-    await Future.delayed(Duration(seconds: 1));
+    await Future<void>.delayed(const Duration(seconds: 1));
     daemonClient.disconnect();
     exit(0);
   } catch (e) {

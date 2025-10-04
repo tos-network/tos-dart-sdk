@@ -3,8 +3,8 @@ import 'dart:convert';
 
 import 'package:json_rpc_2/json_rpc_2.dart' as json_rpc_2;
 import 'package:logging/logging.dart';
-import 'package:web_socket_client/web_socket_client.dart';
 import 'package:tos_dart_sdk/tos_dart_sdk.dart';
+import 'package:web_socket_client/web_socket_client.dart';
 
 part 'daemon/daemon_client.dart';
 
@@ -81,7 +81,8 @@ sealed class RpcClientRepository {
   /// Note: must be implemented.
   WebSocket _initWebSocket();
 
-  /// Initialize the websocket to communicate with RPC server and start listening.
+  /// Initialize the websocket to communicate with RPC server and start
+  /// listening.
   ///
   /// Note: It has to be called first.
   void connect() {
@@ -199,7 +200,9 @@ sealed class RpcClientRepository {
   /// Subscribe and add callback to a specific event.
   void onEvent(TosJsonKey event, Function callback) {
     if (eventsCallbacks[event]!.isEmpty) {
-      subscribeTo(event).then((_) => registerCallback(event, callback));
+      unawaited(
+        subscribeTo(event).then((_) => registerCallback(event, callback)),
+      );
     } else {
       registerCallback(event, callback);
     }
@@ -209,7 +212,9 @@ sealed class RpcClientRepository {
   void _restoreSubscriptions() {
     _logInfo('restoring subscriptions if any...');
     for (final eventCallbacks in eventsCallbacks.entries) {
-      if (eventCallbacks.value.isNotEmpty) subscribeTo(eventCallbacks.key);
+      if (eventCallbacks.value.isNotEmpty) {
+        unawaited(subscribeTo(eventCallbacks.key));
+      }
     }
   }
 
@@ -261,12 +266,14 @@ sealed class RpcClientRepository {
 
   // Calls all callbacks for a given connection state.
   void _onConnOpen() {
+    // Dynamic call is necessary to invoke callbacks with no specific signature
     // ignore: avoid_dynamic_calls
     _stateChangeCallbacks['open']!.map((callback) => callback());
   }
 
   // Calls all callbacks for a given connection state.
   void _onConnClose() {
+    // Dynamic call is necessary to invoke callbacks with no specific signature
     // ignore: avoid_dynamic_calls
     _stateChangeCallbacks['close']!.map((callback) => callback());
   }
@@ -274,6 +281,7 @@ sealed class RpcClientRepository {
   // Calls all callbacks for a given connection state.
   void _onConnError(dynamic error) {
     _logInfo('error connecting to TOS: $error');
+    // Dynamic call is necessary to invoke callbacks with no specific signature
     // ignore: avoid_dynamic_calls
     _stateChangeCallbacks['error']!.map((callback) => callback());
   }

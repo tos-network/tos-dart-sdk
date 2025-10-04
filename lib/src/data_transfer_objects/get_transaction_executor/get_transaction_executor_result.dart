@@ -1,4 +1,5 @@
-// ignore_for_file: invalid_annotation_target, always_put_required_named_parameters_first
+// Ignore invalid_annotation_target warnings from freezed-generated code
+// ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
