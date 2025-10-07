@@ -5,7 +5,7 @@ const localhostAddress = '127.0.0.1:8080';
 const mainnetNodeURL = 'node.tos.network';
 
 /// testnet node url
-const testnetNodeURL = 'testnet-node.tos.network';
+const testnetNodeURL = 'testnode.tos.network';
 
 /// original tos asset
 const tosAsset =
