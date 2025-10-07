@@ -1,3 +1,9 @@
+## 0.29.2
+
+Bug fix:
+
+- Fix testnet node URL from `testnet-node.tos.network` to `testnode.tos.network` (correct deployment domain)
+
 ## 0.29.1
 
 Code quality improvements and dependency updates:
