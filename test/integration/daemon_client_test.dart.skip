@@ -1,0 +1,146 @@
+@Tags(['integration'])
+library;
+
+import 'package:test/test.dart';
+import 'package:tos_dart_sdk/tos_dart_sdk.dart';
+
+void main() {
+  group('DaemonClient Integration Tests', () {
+    late DaemonClient client;
+
+    setUp(() {
+      // Connect to testnet
+      client = DaemonClient(
+        endPoint: testnetNodeURL,
+        secureWebSocket: true,
+      );
+    });
+
+    tearDown(() {
+      client.disconnect();
+    });
+
+    test('should connect to testnet', () async {
+      var connected = false;
+      client
+        ..onOpen(() {
+          connected = true;
+        })
+        ..connect();
+
+      // Wait for connection
+      await Future<void>.delayed(const Duration(seconds: 2));
+
+      expect(connected, isTrue);
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get version from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final version = await client.getVersion();
+
+      expect(version, isNotNull);
+      expect(version, isA<String>());
+      expect(version, isNotEmpty);
+      print('Testnet version: $version');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get info from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final info = await client.getInfo();
+
+      expect(info, isNotNull);
+      expect(info.network, equals(Network.testnet));
+      expect(info.blueScore, greaterThan(0));
+      expect(info.topoHeight, greaterThan(0));
+      expect(info.stableHeight, greaterThan(0));
+      expect(info.version, isNotEmpty);
+      expect(info.topBlockHash, isNotEmpty);
+
+      print('Network: ${info.network}');
+      print('Blue Score: ${info.blueScore}');
+      print('Topo Height: ${info.topoHeight}');
+      print('Stable Height: ${info.stableHeight}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get blue score from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final blueScore = await client.getBlueScore();
+
+      expect(blueScore, isNotNull);
+      expect(blueScore, greaterThan(0));
+      print('Blue Score: $blueScore');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get topoheight from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final topoheight = await client.getTopoHeight();
+
+      expect(topoheight, isNotNull);
+      expect(topoheight, greaterThan(0));
+      print('Topoheight: $topoheight');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get stable blue score from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final stableBlueScore = await client.getStableBlueScore();
+
+      expect(stableBlueScore, isNotNull);
+      expect(stableBlueScore, greaterThan(0));
+      print('Stable Blue Score: $stableBlueScore');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get stable topoheight from testnet', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final stableTopoheight = await client.getStableTopoHeight();
+
+      expect(stableTopoheight, isNotNull);
+      expect(stableTopoheight, greaterThan(0));
+      print('Stable Topoheight: $stableTopoheight');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should verify stable values are less than current values', () async {
+      client.connect();
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final info = await client.getInfo();
+
+      expect(info.stableHeight, lessThanOrEqualTo(info.topoHeight));
+      expect(info.stableHeight, greaterThan(0));
+
+      print('Topoheight: ${info.topoHeight}');
+      print('Stable Height: ${info.stableHeight}');
+      print('Difference: ${info.topoHeight - info.stableHeight}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should handle connection errors gracefully', () async {
+      final badClient = DaemonClient(
+        endPoint: 'invalid.domain.test',
+        secureWebSocket: true,
+      );
+
+      var errorCaught = false;
+      badClient.onError((error) {
+        errorCaught = true;
+        print('Expected error caught: $error');
+      });
+
+      badClient.connect();
+      await Future<void>.delayed(const Duration(seconds: 3));
+
+      expect(errorCaught, isTrue);
+      badClient.disconnect();
+    }, timeout: const Timeout(Duration(seconds: 15)));
+  });
+}

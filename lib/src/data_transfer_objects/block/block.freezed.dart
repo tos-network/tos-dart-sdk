@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Block {
 
-@JsonKey(name: 'block_type') String get blockType;@JsonKey(name: 'cumulative_difficulty') String get cumulativeDifficulty;@JsonKey(name: 'difficulty') String get difficulty;@JsonKey(name: 'extra_nonce') String get extraNonce;@JsonKey(name: 'hash') String get hash;@JsonKey(name: 'height') int get height;@JsonKey(name: 'miner') String get miner;@JsonKey(name: 'nonce') int get nonce;@JsonKey(name: 'reward') int? get reward;@JsonKey(name: 'miner_reward') int? get minerReward;@JsonKey(name: 'dev_reward') int? get devReward;@JsonKey(name: 'supply') int? get supply;// TODO convert timestamp to DateTime
+@JsonKey(name: 'block_type') String get blockType;@JsonKey(name: 'cumulative_difficulty') String? get cumulativeDifficulty;@JsonKey(name: 'difficulty') String? get difficulty;@JsonKey(name: 'extra_nonce') String? get extraNonce;@JsonKey(name: 'hash') String get hash;@JsonKey(name: 'blue_score') int get blueScore;@JsonKey(name: 'miner') String? get miner;@JsonKey(name: 'nonce') int get nonce;@JsonKey(name: 'reward') int? get reward;@JsonKey(name: 'miner_reward') int? get minerReward;@JsonKey(name: 'dev_reward') int? get devReward;@JsonKey(name: 'supply') int? get supply;// TODO convert timestamp to DateTime
 @JsonKey(name: 'timestamp') int get timestamp;@JsonKey(name: 'tips') List<String> get tips;@JsonKey(name: 'topoheight') int? get topoHeight;@JsonKey(name: 'total_size_in_bytes') int get totalSizeInBytes;@JsonKey(name: 'total_fees') int? get totalFees;@JsonKey(name: 'txs_hashes') List<String> get txsHashes;@JsonKey(name: 'version') int get version;@JsonKey(name: 'transactions') List<RPCTransaction>? get transactions;
 /// Create a copy of Block
 /// with the given fields replaced by the non-null parameter values.
@@ -29,16 +29,16 @@ $BlockCopyWith<Block> get copyWith => _$BlockCopyWithImpl<Block>(this as Block, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Block&&(identical(other.blockType, blockType) || other.blockType == blockType)&&(identical(other.cumulativeDifficulty, cumulativeDifficulty) || other.cumulativeDifficulty == cumulativeDifficulty)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.extraNonce, extraNonce) || other.extraNonce == extraNonce)&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.height, height) || other.height == height)&&(identical(other.miner, miner) || other.miner == miner)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.reward, reward) || other.reward == reward)&&(identical(other.minerReward, minerReward) || other.minerReward == minerReward)&&(identical(other.devReward, devReward) || other.devReward == devReward)&&(identical(other.supply, supply) || other.supply == supply)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&const DeepCollectionEquality().equals(other.tips, tips)&&(identical(other.topoHeight, topoHeight) || other.topoHeight == topoHeight)&&(identical(other.totalSizeInBytes, totalSizeInBytes) || other.totalSizeInBytes == totalSizeInBytes)&&(identical(other.totalFees, totalFees) || other.totalFees == totalFees)&&const DeepCollectionEquality().equals(other.txsHashes, txsHashes)&&(identical(other.version, version) || other.version == version)&&const DeepCollectionEquality().equals(other.transactions, transactions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Block&&(identical(other.blockType, blockType) || other.blockType == blockType)&&(identical(other.cumulativeDifficulty, cumulativeDifficulty) || other.cumulativeDifficulty == cumulativeDifficulty)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.extraNonce, extraNonce) || other.extraNonce == extraNonce)&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.miner, miner) || other.miner == miner)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.reward, reward) || other.reward == reward)&&(identical(other.minerReward, minerReward) || other.minerReward == minerReward)&&(identical(other.devReward, devReward) || other.devReward == devReward)&&(identical(other.supply, supply) || other.supply == supply)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&const DeepCollectionEquality().equals(other.tips, tips)&&(identical(other.topoHeight, topoHeight) || other.topoHeight == topoHeight)&&(identical(other.totalSizeInBytes, totalSizeInBytes) || other.totalSizeInBytes == totalSizeInBytes)&&(identical(other.totalFees, totalFees) || other.totalFees == totalFees)&&const DeepCollectionEquality().equals(other.txsHashes, txsHashes)&&(identical(other.version, version) || other.version == version)&&const DeepCollectionEquality().equals(other.transactions, transactions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,blockType,cumulativeDifficulty,difficulty,extraNonce,hash,height,miner,nonce,reward,minerReward,devReward,supply,timestamp,const DeepCollectionEquality().hash(tips),topoHeight,totalSizeInBytes,totalFees,const DeepCollectionEquality().hash(txsHashes),version,const DeepCollectionEquality().hash(transactions)]);
+int get hashCode => Object.hashAll([runtimeType,blockType,cumulativeDifficulty,difficulty,extraNonce,hash,blueScore,miner,nonce,reward,minerReward,devReward,supply,timestamp,const DeepCollectionEquality().hash(tips),topoHeight,totalSizeInBytes,totalFees,const DeepCollectionEquality().hash(txsHashes),version,const DeepCollectionEquality().hash(transactions)]);
 
 @override
 String toString() {
-  return 'Block(blockType: $blockType, cumulativeDifficulty: $cumulativeDifficulty, difficulty: $difficulty, extraNonce: $extraNonce, hash: $hash, height: $height, miner: $miner, nonce: $nonce, reward: $reward, minerReward: $minerReward, devReward: $devReward, supply: $supply, timestamp: $timestamp, tips: $tips, topoHeight: $topoHeight, totalSizeInBytes: $totalSizeInBytes, totalFees: $totalFees, txsHashes: $txsHashes, version: $version, transactions: $transactions)';
+  return 'Block(blockType: $blockType, cumulativeDifficulty: $cumulativeDifficulty, difficulty: $difficulty, extraNonce: $extraNonce, hash: $hash, blueScore: $blueScore, miner: $miner, nonce: $nonce, reward: $reward, minerReward: $minerReward, devReward: $devReward, supply: $supply, timestamp: $timestamp, tips: $tips, topoHeight: $topoHeight, totalSizeInBytes: $totalSizeInBytes, totalFees: $totalFees, txsHashes: $txsHashes, version: $version, transactions: $transactions)';
 }
 
 
@@ -49,7 +49,7 @@ abstract mixin class $BlockCopyWith<$Res>  {
   factory $BlockCopyWith(Block value, $Res Function(Block) _then) = _$BlockCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'block_type') String blockType,@JsonKey(name: 'cumulative_difficulty') String cumulativeDifficulty,@JsonKey(name: 'difficulty') String difficulty,@JsonKey(name: 'extra_nonce') String extraNonce,@JsonKey(name: 'hash') String hash,@JsonKey(name: 'height') int height,@JsonKey(name: 'miner') String miner,@JsonKey(name: 'nonce') int nonce,@JsonKey(name: 'reward') int? reward,@JsonKey(name: 'miner_reward') int? minerReward,@JsonKey(name: 'dev_reward') int? devReward,@JsonKey(name: 'supply') int? supply,@JsonKey(name: 'timestamp') int timestamp,@JsonKey(name: 'tips') List<String> tips,@JsonKey(name: 'topoheight') int? topoHeight,@JsonKey(name: 'total_size_in_bytes') int totalSizeInBytes,@JsonKey(name: 'total_fees') int? totalFees,@JsonKey(name: 'txs_hashes') List<String> txsHashes,@JsonKey(name: 'version') int version,@JsonKey(name: 'transactions') List<RPCTransaction>? transactions
+@JsonKey(name: 'block_type') String blockType,@JsonKey(name: 'cumulative_difficulty') String? cumulativeDifficulty,@JsonKey(name: 'difficulty') String? difficulty,@JsonKey(name: 'extra_nonce') String? extraNonce,@JsonKey(name: 'hash') String hash,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'miner') String? miner,@JsonKey(name: 'nonce') int nonce,@JsonKey(name: 'reward') int? reward,@JsonKey(name: 'miner_reward') int? minerReward,@JsonKey(name: 'dev_reward') int? devReward,@JsonKey(name: 'supply') int? supply,@JsonKey(name: 'timestamp') int timestamp,@JsonKey(name: 'tips') List<String> tips,@JsonKey(name: 'topoheight') int? topoHeight,@JsonKey(name: 'total_size_in_bytes') int totalSizeInBytes,@JsonKey(name: 'total_fees') int? totalFees,@JsonKey(name: 'txs_hashes') List<String> txsHashes,@JsonKey(name: 'version') int version,@JsonKey(name: 'transactions') List<RPCTransaction>? transactions
 });
 
 
@@ -66,16 +66,16 @@ class _$BlockCopyWithImpl<$Res>
 
 /// Create a copy of Block
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? blockType = null,Object? cumulativeDifficulty = null,Object? difficulty = null,Object? extraNonce = null,Object? hash = null,Object? height = null,Object? miner = null,Object? nonce = null,Object? reward = freezed,Object? minerReward = freezed,Object? devReward = freezed,Object? supply = freezed,Object? timestamp = null,Object? tips = null,Object? topoHeight = freezed,Object? totalSizeInBytes = null,Object? totalFees = freezed,Object? txsHashes = null,Object? version = null,Object? transactions = freezed,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? blockType = null,Object? cumulativeDifficulty = freezed,Object? difficulty = freezed,Object? extraNonce = freezed,Object? hash = null,Object? blueScore = null,Object? miner = freezed,Object? nonce = null,Object? reward = freezed,Object? minerReward = freezed,Object? devReward = freezed,Object? supply = freezed,Object? timestamp = null,Object? tips = null,Object? topoHeight = freezed,Object? totalSizeInBytes = null,Object? totalFees = freezed,Object? txsHashes = null,Object? version = null,Object? transactions = freezed,}) {
   return _then(_self.copyWith(
 blockType: null == blockType ? _self.blockType : blockType // ignore: cast_nullable_to_non_nullable
-as String,cumulativeDifficulty: null == cumulativeDifficulty ? _self.cumulativeDifficulty : cumulativeDifficulty // ignore: cast_nullable_to_non_nullable
-as String,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
-as String,extraNonce: null == extraNonce ? _self.extraNonce : extraNonce // ignore: cast_nullable_to_non_nullable
-as String,hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
-as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
-as int,miner: null == miner ? _self.miner : miner // ignore: cast_nullable_to_non_nullable
-as String,nonce: null == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
+as String,cumulativeDifficulty: freezed == cumulativeDifficulty ? _self.cumulativeDifficulty : cumulativeDifficulty // ignore: cast_nullable_to_non_nullable
+as String?,difficulty: freezed == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
+as String?,extraNonce: freezed == extraNonce ? _self.extraNonce : extraNonce // ignore: cast_nullable_to_non_nullable
+as String?,hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
+as String,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as int,miner: freezed == miner ? _self.miner : miner // ignore: cast_nullable_to_non_nullable
+as String?,nonce: null == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
 as int,reward: freezed == reward ? _self.reward : reward // ignore: cast_nullable_to_non_nullable
 as int?,minerReward: freezed == minerReward ? _self.minerReward : minerReward // ignore: cast_nullable_to_non_nullable
 as int?,devReward: freezed == devReward ? _self.devReward : devReward // ignore: cast_nullable_to_non_nullable
@@ -173,10 +173,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String cumulativeDifficulty, @JsonKey(name: 'difficulty')  String difficulty, @JsonKey(name: 'extra_nonce')  String extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'height')  int height, @JsonKey(name: 'miner')  String miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String? cumulativeDifficulty, @JsonKey(name: 'difficulty')  String? difficulty, @JsonKey(name: 'extra_nonce')  String? extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'miner')  String? miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Block() when $default != null:
-return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.height,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
+return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.blueScore,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
   return orElse();
 
 }
@@ -194,10 +194,10 @@ return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String cumulativeDifficulty, @JsonKey(name: 'difficulty')  String difficulty, @JsonKey(name: 'extra_nonce')  String extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'height')  int height, @JsonKey(name: 'miner')  String miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String? cumulativeDifficulty, @JsonKey(name: 'difficulty')  String? difficulty, @JsonKey(name: 'extra_nonce')  String? extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'miner')  String? miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)  $default,) {final _that = this;
 switch (_that) {
 case _Block():
-return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.height,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
+return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.blueScore,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -214,10 +214,10 @@ return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_tha
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String cumulativeDifficulty, @JsonKey(name: 'difficulty')  String difficulty, @JsonKey(name: 'extra_nonce')  String extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'height')  int height, @JsonKey(name: 'miner')  String miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'block_type')  String blockType, @JsonKey(name: 'cumulative_difficulty')  String? cumulativeDifficulty, @JsonKey(name: 'difficulty')  String? difficulty, @JsonKey(name: 'extra_nonce')  String? extraNonce, @JsonKey(name: 'hash')  String hash, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'miner')  String? miner, @JsonKey(name: 'nonce')  int nonce, @JsonKey(name: 'reward')  int? reward, @JsonKey(name: 'miner_reward')  int? minerReward, @JsonKey(name: 'dev_reward')  int? devReward, @JsonKey(name: 'supply')  int? supply, @JsonKey(name: 'timestamp')  int timestamp, @JsonKey(name: 'tips')  List<String> tips, @JsonKey(name: 'topoheight')  int? topoHeight, @JsonKey(name: 'total_size_in_bytes')  int totalSizeInBytes, @JsonKey(name: 'total_fees')  int? totalFees, @JsonKey(name: 'txs_hashes')  List<String> txsHashes, @JsonKey(name: 'version')  int version, @JsonKey(name: 'transactions')  List<RPCTransaction>? transactions)?  $default,) {final _that = this;
 switch (_that) {
 case _Block() when $default != null:
-return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.height,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
+return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_that.extraNonce,_that.hash,_that.blueScore,_that.miner,_that.nonce,_that.reward,_that.minerReward,_that.devReward,_that.supply,_that.timestamp,_that.tips,_that.topoHeight,_that.totalSizeInBytes,_that.totalFees,_that.txsHashes,_that.version,_that.transactions);case _:
   return null;
 
 }
@@ -229,16 +229,16 @@ return $default(_that.blockType,_that.cumulativeDifficulty,_that.difficulty,_tha
 @JsonSerializable()
 
 class _Block implements Block {
-  const _Block({@JsonKey(name: 'block_type') required this.blockType, @JsonKey(name: 'cumulative_difficulty') required this.cumulativeDifficulty, @JsonKey(name: 'difficulty') required this.difficulty, @JsonKey(name: 'extra_nonce') required this.extraNonce, @JsonKey(name: 'hash') required this.hash, @JsonKey(name: 'height') required this.height, @JsonKey(name: 'miner') required this.miner, @JsonKey(name: 'nonce') required this.nonce, @JsonKey(name: 'reward') this.reward, @JsonKey(name: 'miner_reward') this.minerReward, @JsonKey(name: 'dev_reward') this.devReward, @JsonKey(name: 'supply') this.supply, @JsonKey(name: 'timestamp') required this.timestamp, @JsonKey(name: 'tips') required final  List<String> tips, @JsonKey(name: 'topoheight') this.topoHeight, @JsonKey(name: 'total_size_in_bytes') required this.totalSizeInBytes, @JsonKey(name: 'total_fees') this.totalFees, @JsonKey(name: 'txs_hashes') required final  List<String> txsHashes, @JsonKey(name: 'version') required this.version, @JsonKey(name: 'transactions') final  List<RPCTransaction>? transactions}): _tips = tips,_txsHashes = txsHashes,_transactions = transactions;
+  const _Block({@JsonKey(name: 'block_type') required this.blockType, @JsonKey(name: 'cumulative_difficulty') this.cumulativeDifficulty, @JsonKey(name: 'difficulty') this.difficulty, @JsonKey(name: 'extra_nonce') this.extraNonce, @JsonKey(name: 'hash') required this.hash, @JsonKey(name: 'blue_score') required this.blueScore, @JsonKey(name: 'miner') this.miner, @JsonKey(name: 'nonce') required this.nonce, @JsonKey(name: 'reward') this.reward, @JsonKey(name: 'miner_reward') this.minerReward, @JsonKey(name: 'dev_reward') this.devReward, @JsonKey(name: 'supply') this.supply, @JsonKey(name: 'timestamp') required this.timestamp, @JsonKey(name: 'tips') required final  List<String> tips, @JsonKey(name: 'topoheight') this.topoHeight, @JsonKey(name: 'total_size_in_bytes') required this.totalSizeInBytes, @JsonKey(name: 'total_fees') this.totalFees, @JsonKey(name: 'txs_hashes') required final  List<String> txsHashes, @JsonKey(name: 'version') required this.version, @JsonKey(name: 'transactions') final  List<RPCTransaction>? transactions}): _tips = tips,_txsHashes = txsHashes,_transactions = transactions;
   factory _Block.fromJson(Map<String, dynamic> json) => _$BlockFromJson(json);
 
 @override@JsonKey(name: 'block_type') final  String blockType;
-@override@JsonKey(name: 'cumulative_difficulty') final  String cumulativeDifficulty;
-@override@JsonKey(name: 'difficulty') final  String difficulty;
-@override@JsonKey(name: 'extra_nonce') final  String extraNonce;
+@override@JsonKey(name: 'cumulative_difficulty') final  String? cumulativeDifficulty;
+@override@JsonKey(name: 'difficulty') final  String? difficulty;
+@override@JsonKey(name: 'extra_nonce') final  String? extraNonce;
 @override@JsonKey(name: 'hash') final  String hash;
-@override@JsonKey(name: 'height') final  int height;
-@override@JsonKey(name: 'miner') final  String miner;
+@override@JsonKey(name: 'blue_score') final  int blueScore;
+@override@JsonKey(name: 'miner') final  String? miner;
 @override@JsonKey(name: 'nonce') final  int nonce;
 @override@JsonKey(name: 'reward') final  int? reward;
 @override@JsonKey(name: 'miner_reward') final  int? minerReward;
@@ -287,16 +287,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Block&&(identical(other.blockType, blockType) || other.blockType == blockType)&&(identical(other.cumulativeDifficulty, cumulativeDifficulty) || other.cumulativeDifficulty == cumulativeDifficulty)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.extraNonce, extraNonce) || other.extraNonce == extraNonce)&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.height, height) || other.height == height)&&(identical(other.miner, miner) || other.miner == miner)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.reward, reward) || other.reward == reward)&&(identical(other.minerReward, minerReward) || other.minerReward == minerReward)&&(identical(other.devReward, devReward) || other.devReward == devReward)&&(identical(other.supply, supply) || other.supply == supply)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&const DeepCollectionEquality().equals(other._tips, _tips)&&(identical(other.topoHeight, topoHeight) || other.topoHeight == topoHeight)&&(identical(other.totalSizeInBytes, totalSizeInBytes) || other.totalSizeInBytes == totalSizeInBytes)&&(identical(other.totalFees, totalFees) || other.totalFees == totalFees)&&const DeepCollectionEquality().equals(other._txsHashes, _txsHashes)&&(identical(other.version, version) || other.version == version)&&const DeepCollectionEquality().equals(other._transactions, _transactions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Block&&(identical(other.blockType, blockType) || other.blockType == blockType)&&(identical(other.cumulativeDifficulty, cumulativeDifficulty) || other.cumulativeDifficulty == cumulativeDifficulty)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.extraNonce, extraNonce) || other.extraNonce == extraNonce)&&(identical(other.hash, hash) || other.hash == hash)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.miner, miner) || other.miner == miner)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.reward, reward) || other.reward == reward)&&(identical(other.minerReward, minerReward) || other.minerReward == minerReward)&&(identical(other.devReward, devReward) || other.devReward == devReward)&&(identical(other.supply, supply) || other.supply == supply)&&(identical(other.timestamp, timestamp) || other.timestamp == timestamp)&&const DeepCollectionEquality().equals(other._tips, _tips)&&(identical(other.topoHeight, topoHeight) || other.topoHeight == topoHeight)&&(identical(other.totalSizeInBytes, totalSizeInBytes) || other.totalSizeInBytes == totalSizeInBytes)&&(identical(other.totalFees, totalFees) || other.totalFees == totalFees)&&const DeepCollectionEquality().equals(other._txsHashes, _txsHashes)&&(identical(other.version, version) || other.version == version)&&const DeepCollectionEquality().equals(other._transactions, _transactions));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hashAll([runtimeType,blockType,cumulativeDifficulty,difficulty,extraNonce,hash,height,miner,nonce,reward,minerReward,devReward,supply,timestamp,const DeepCollectionEquality().hash(_tips),topoHeight,totalSizeInBytes,totalFees,const DeepCollectionEquality().hash(_txsHashes),version,const DeepCollectionEquality().hash(_transactions)]);
+int get hashCode => Object.hashAll([runtimeType,blockType,cumulativeDifficulty,difficulty,extraNonce,hash,blueScore,miner,nonce,reward,minerReward,devReward,supply,timestamp,const DeepCollectionEquality().hash(_tips),topoHeight,totalSizeInBytes,totalFees,const DeepCollectionEquality().hash(_txsHashes),version,const DeepCollectionEquality().hash(_transactions)]);
 
 @override
 String toString() {
-  return 'Block(blockType: $blockType, cumulativeDifficulty: $cumulativeDifficulty, difficulty: $difficulty, extraNonce: $extraNonce, hash: $hash, height: $height, miner: $miner, nonce: $nonce, reward: $reward, minerReward: $minerReward, devReward: $devReward, supply: $supply, timestamp: $timestamp, tips: $tips, topoHeight: $topoHeight, totalSizeInBytes: $totalSizeInBytes, totalFees: $totalFees, txsHashes: $txsHashes, version: $version, transactions: $transactions)';
+  return 'Block(blockType: $blockType, cumulativeDifficulty: $cumulativeDifficulty, difficulty: $difficulty, extraNonce: $extraNonce, hash: $hash, blueScore: $blueScore, miner: $miner, nonce: $nonce, reward: $reward, minerReward: $minerReward, devReward: $devReward, supply: $supply, timestamp: $timestamp, tips: $tips, topoHeight: $topoHeight, totalSizeInBytes: $totalSizeInBytes, totalFees: $totalFees, txsHashes: $txsHashes, version: $version, transactions: $transactions)';
 }
 
 
@@ -307,7 +307,7 @@ abstract mixin class _$BlockCopyWith<$Res> implements $BlockCopyWith<$Res> {
   factory _$BlockCopyWith(_Block value, $Res Function(_Block) _then) = __$BlockCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'block_type') String blockType,@JsonKey(name: 'cumulative_difficulty') String cumulativeDifficulty,@JsonKey(name: 'difficulty') String difficulty,@JsonKey(name: 'extra_nonce') String extraNonce,@JsonKey(name: 'hash') String hash,@JsonKey(name: 'height') int height,@JsonKey(name: 'miner') String miner,@JsonKey(name: 'nonce') int nonce,@JsonKey(name: 'reward') int? reward,@JsonKey(name: 'miner_reward') int? minerReward,@JsonKey(name: 'dev_reward') int? devReward,@JsonKey(name: 'supply') int? supply,@JsonKey(name: 'timestamp') int timestamp,@JsonKey(name: 'tips') List<String> tips,@JsonKey(name: 'topoheight') int? topoHeight,@JsonKey(name: 'total_size_in_bytes') int totalSizeInBytes,@JsonKey(name: 'total_fees') int? totalFees,@JsonKey(name: 'txs_hashes') List<String> txsHashes,@JsonKey(name: 'version') int version,@JsonKey(name: 'transactions') List<RPCTransaction>? transactions
+@JsonKey(name: 'block_type') String blockType,@JsonKey(name: 'cumulative_difficulty') String? cumulativeDifficulty,@JsonKey(name: 'difficulty') String? difficulty,@JsonKey(name: 'extra_nonce') String? extraNonce,@JsonKey(name: 'hash') String hash,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'miner') String? miner,@JsonKey(name: 'nonce') int nonce,@JsonKey(name: 'reward') int? reward,@JsonKey(name: 'miner_reward') int? minerReward,@JsonKey(name: 'dev_reward') int? devReward,@JsonKey(name: 'supply') int? supply,@JsonKey(name: 'timestamp') int timestamp,@JsonKey(name: 'tips') List<String> tips,@JsonKey(name: 'topoheight') int? topoHeight,@JsonKey(name: 'total_size_in_bytes') int totalSizeInBytes,@JsonKey(name: 'total_fees') int? totalFees,@JsonKey(name: 'txs_hashes') List<String> txsHashes,@JsonKey(name: 'version') int version,@JsonKey(name: 'transactions') List<RPCTransaction>? transactions
 });
 
 
@@ -324,16 +324,16 @@ class __$BlockCopyWithImpl<$Res>
 
 /// Create a copy of Block
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? blockType = null,Object? cumulativeDifficulty = null,Object? difficulty = null,Object? extraNonce = null,Object? hash = null,Object? height = null,Object? miner = null,Object? nonce = null,Object? reward = freezed,Object? minerReward = freezed,Object? devReward = freezed,Object? supply = freezed,Object? timestamp = null,Object? tips = null,Object? topoHeight = freezed,Object? totalSizeInBytes = null,Object? totalFees = freezed,Object? txsHashes = null,Object? version = null,Object? transactions = freezed,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? blockType = null,Object? cumulativeDifficulty = freezed,Object? difficulty = freezed,Object? extraNonce = freezed,Object? hash = null,Object? blueScore = null,Object? miner = freezed,Object? nonce = null,Object? reward = freezed,Object? minerReward = freezed,Object? devReward = freezed,Object? supply = freezed,Object? timestamp = null,Object? tips = null,Object? topoHeight = freezed,Object? totalSizeInBytes = null,Object? totalFees = freezed,Object? txsHashes = null,Object? version = null,Object? transactions = freezed,}) {
   return _then(_Block(
 blockType: null == blockType ? _self.blockType : blockType // ignore: cast_nullable_to_non_nullable
-as String,cumulativeDifficulty: null == cumulativeDifficulty ? _self.cumulativeDifficulty : cumulativeDifficulty // ignore: cast_nullable_to_non_nullable
-as String,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
-as String,extraNonce: null == extraNonce ? _self.extraNonce : extraNonce // ignore: cast_nullable_to_non_nullable
-as String,hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
-as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
-as int,miner: null == miner ? _self.miner : miner // ignore: cast_nullable_to_non_nullable
-as String,nonce: null == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
+as String,cumulativeDifficulty: freezed == cumulativeDifficulty ? _self.cumulativeDifficulty : cumulativeDifficulty // ignore: cast_nullable_to_non_nullable
+as String?,difficulty: freezed == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
+as String?,extraNonce: freezed == extraNonce ? _self.extraNonce : extraNonce // ignore: cast_nullable_to_non_nullable
+as String?,hash: null == hash ? _self.hash : hash // ignore: cast_nullable_to_non_nullable
+as String,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as int,miner: freezed == miner ? _self.miner : miner // ignore: cast_nullable_to_non_nullable
+as String?,nonce: null == nonce ? _self.nonce : nonce // ignore: cast_nullable_to_non_nullable
 as int,reward: freezed == reward ? _self.reward : reward // ignore: cast_nullable_to_non_nullable
 as int?,minerReward: freezed == minerReward ? _self.minerReward : minerReward // ignore: cast_nullable_to_non_nullable
 as int?,devReward: freezed == devReward ? _self.devReward : devReward // ignore: cast_nullable_to_non_nullable

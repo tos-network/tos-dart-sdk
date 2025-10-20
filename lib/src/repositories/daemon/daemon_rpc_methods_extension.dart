@@ -15,9 +15,9 @@ extension DaemonRpcMethodsExtension on DaemonClient {
     return GetInfoResult.fromJson(result as Map<String, dynamic>);
   }
 
-  /// Returns current height  of the chain.
-  Future<int> getHeight() async {
-    final result = await sendRequest(DaemonMethod.getHeight);
+  /// Returns current blue score (DAG depth) of the chain.
+  Future<int> getBlueScore() async {
+    final result = await sendRequest(DaemonMethod.getBlueScore);
     return result as int;
   }
 
@@ -27,9 +27,9 @@ extension DaemonRpcMethodsExtension on DaemonClient {
     return result as int;
   }
 
-  /// Returns the stable height of the chain.
-  Future<int> getStableHeight() async {
-    final result = await sendRequest(DaemonMethod.getStableHeight);
+  /// Returns the stable blue score of the chain.
+  Future<int> getStableBlueScore() async {
+    final result = await sendRequest(DaemonMethod.getStableBlueScore);
     return result as int;
   }
 
@@ -61,13 +61,13 @@ extension DaemonRpcMethodsExtension on DaemonClient {
     return Block.fromJson(result as Map<String, dynamic>);
   }
 
-  /// Returns all blocks at a specific height.
-  Future<List<Block>> getBlocksAtHeight(
-    GetBlocksAtHeightParams getBlocksAtHeightParams,
+  /// Returns all blocks at a specific blue score (DAG height).
+  Future<List<Block>> getBlocksAtBlueScore(
+    GetBlocksAtBlueScoreParams params,
   ) async {
     final result = await sendRequest(
-      DaemonMethod.getBlocksAtHeight,
-      getBlocksAtHeightParams.toJson(),
+      DaemonMethod.getBlocksAtBlueScore,
+      params.toJson(),
     );
     return (result as List)
         .map((e) => Block.fromJson(e as Map<String, dynamic>))

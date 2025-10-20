@@ -31,7 +31,7 @@ export 'get_block_at_topoheight/get_block_at_topoheight_params.dart';
 export 'get_block_by_hash/get_block_by_hash_params.dart';
 export 'get_block_template/get_block_template_params.dart';
 export 'get_block_template/get_block_template_result.dart';
-export 'get_blocks_at_height/get_blocks_at_height_params.dart';
+export 'get_blocks_at_blue_score/get_blocks_at_blue_score_params.dart';
 export 'get_contract_data/get_contract_data_params.dart';
 export 'get_contract_data/get_contract_data_result.dart';
 export 'get_contract_module/get_contract_module_params.dart';

@@ -8,14 +8,14 @@ enum DaemonMethod implements TosJsonKey {
   /// Retrieve current info from chain.
   getInfo('get_info'),
 
-  /// Retrieve current height of the chain.
-  getHeight('get_height'),
+  /// Retrieve current blue score (DAG depth) of the chain.
+  getBlueScore('get_blue_score'),
 
   /// Retrieve current topological height of the chain.
   getTopoHeight('get_topoheight'),
 
-  /// Retrieve current stable height of the chain.
-  getStableHeight('get_stable_height'),
+  /// Retrieve current stable blue score of the chain.
+  getStableBlueScore('get_stable_blue_score'),
 
   /// Retrieve current stable topological height of the chain.
   getStableTopoheight('get_stable_topoheight'),
@@ -26,8 +26,8 @@ enum DaemonMethod implements TosJsonKey {
   /// Retrieve a block at a specific topo height.
   getBlockAtTopoHeight('get_block_at_topoheight'),
 
-  /// Retrieve all blocks at a specific height.
-  getBlocksAtHeight('get_blocks_at_height'),
+  /// Retrieve all blocks at a specific blue score (DAG height).
+  getBlocksAtBlueScore('get_blocks_at_blue_score'),
 
   /// Retrieve a block by its hash.
   getBlockByHash('get_block_by_hash'),

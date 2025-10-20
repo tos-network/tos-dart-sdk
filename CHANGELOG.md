@@ -1,3 +1,17 @@
+## 0.29.3
+
+Breaking changes - API simplification:
+
+- Migrate from encrypted balance to plaintext balance representation
+- Rename `getBlocksAtHeight` to `getBlocksAtBlueScore` (GHOSTDAG consensus terminology)
+- Simplify `GetBalanceResult` to return plaintext balance directly
+- Simplify `GetStableBalanceResult` structure
+- Simplify `TransferPayload` by removing cryptographic proof fields
+- Update `Block` field names to use `blue_score` instead of `height`
+- Update `GetInfoResult`, `GetBlockTemplateResult`, `GetMinerWorkResult` to use GHOSTDAG terminology
+
+Note: This update aligns with daemon API changes for improved clarity and performance.
+
 ## 0.29.2
 
 Bug fix:

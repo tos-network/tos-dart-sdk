@@ -16,12 +16,12 @@ abstract class Block with _$Block {
   const factory Block({
     @JsonKey(name: 'block_type') required String blockType,
     @JsonKey(name: 'cumulative_difficulty')
-    required String cumulativeDifficulty,
-    @JsonKey(name: 'difficulty') required String difficulty,
-    @JsonKey(name: 'extra_nonce') required String extraNonce,
+    String? cumulativeDifficulty,
+    @JsonKey(name: 'difficulty') String? difficulty,
+    @JsonKey(name: 'extra_nonce') String? extraNonce,
     @JsonKey(name: 'hash') required String hash,
-    @JsonKey(name: 'height') required int height,
-    @JsonKey(name: 'miner') required String miner,
+    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'miner') String? miner,
     @JsonKey(name: 'nonce') required int nonce,
     @JsonKey(name: 'reward') int? reward,
     @JsonKey(name: 'miner_reward') int? minerReward,

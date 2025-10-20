@@ -10,14 +10,12 @@ part of 'get_balance_result.dart';
 
 _GetBalanceResult _$GetBalanceResultFromJson(Map<String, dynamic> json) =>
     _GetBalanceResult(
-      versionedBalance: BalanceVersion.fromJson(
-        json['version'] as Map<String, dynamic>,
-      ),
+      balance: (json['balance'] as num).toInt(),
       topoheight: (json['topoheight'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetBalanceResultToJson(_GetBalanceResult instance) =>
     <String, dynamic>{
-      'version': instance.versionedBalance,
+      'balance': instance.balance,
       'topoheight': instance.topoheight,
     };

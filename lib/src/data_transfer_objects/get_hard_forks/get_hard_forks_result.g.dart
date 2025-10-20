@@ -10,7 +10,7 @@ part of 'get_hard_forks_result.dart';
 
 _GetHardForksResult _$GetHardForksResultFromJson(Map<String, dynamic> json) =>
     _GetHardForksResult(
-      height: (json['height'] as num).toInt(),
+      blueScore: (json['blue_score'] as num).toInt(),
       version: (json['version'] as num).toInt(),
       changelog: json['changelog'] as String,
       versionRequirement: json['version_requirement'] as String?,
@@ -18,7 +18,7 @@ _GetHardForksResult _$GetHardForksResultFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$GetHardForksResultToJson(_GetHardForksResult instance) =>
     <String, dynamic>{
-      'height': instance.height,
+      'blue_score': instance.blueScore,
       'version': instance.version,
       'changelog': instance.changelog,
       'version_requirement': instance.versionRequirement,

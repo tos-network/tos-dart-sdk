@@ -11,8 +11,8 @@ part of 'balance_version.dart';
 _BalanceVersion _$BalanceVersionFromJson(Map<String, dynamic> json) =>
     _BalanceVersion(
       balanceType: json['balance_type'] as String,
-      finalBalance: json['final_balance'] as Map<String, dynamic>,
-      outputBalance: json['output_balance'] as Map<String, dynamic>?,
+      finalBalance: (json['final_balance'] as num).toInt(),
+      outputBalance: (json['output_balance'] as num?)?.toInt(),
       previousTopoheight: (json['previous_topoheight'] as num?)?.toInt(),
     );
 

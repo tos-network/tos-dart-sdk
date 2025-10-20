@@ -13,8 +13,8 @@ abstract class BalanceVersion with _$BalanceVersion {
   /// @nodoc
   const factory BalanceVersion({
     @JsonKey(name: 'balance_type') required String balanceType,
-    @JsonKey(name: 'final_balance') required Map<String, dynamic> finalBalance,
-    @JsonKey(name: 'output_balance') Map<String, dynamic>? outputBalance,
+    @JsonKey(name: 'final_balance') required int finalBalance,
+    @JsonKey(name: 'output_balance') int? outputBalance,
     @JsonKey(name: 'previous_topoheight') int? previousTopoheight,
   }) = _BalanceVersion;
 

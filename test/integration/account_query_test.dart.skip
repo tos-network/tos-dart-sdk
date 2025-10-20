@@ -1,0 +1,256 @@
+@Tags(['integration'])
+library;
+
+import 'package:test/test.dart';
+import 'package:tos_dart_sdk/tos_dart_sdk.dart';
+
+void main() {
+  group('Account Query Integration Tests', () {
+    late DaemonClient client;
+
+    // Use a known testnet address with balance for testing
+    // This should be replaced with an actual testnet address that has balance
+    const testAddress =
+        'tos1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq9dm50j';
+
+    setUp(() {
+      client = DaemonClient(
+        endPoint: testnetNodeURL,
+        secureWebSocket: true,
+      );
+      client.connect();
+    });
+
+    tearDown(() {
+      client.disconnect();
+    });
+
+    test('should check if account is registered', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.isAccountRegistered(
+        IsAccountRegisteredParams(
+          address: testAddress,
+          inStableHeight: true,
+        ),
+      );
+
+      expect(result, isA<bool>());
+      print('Account registered: $result');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should check if account has balance', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.hasBalance(
+        HasBalanceParams(address: testAddress, asset: tosAsset),
+      );
+
+      expect(result, isNotNull);
+      expect(result.exist, isA<bool>());
+
+      print('Has balance: ${result.exist}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get balance for account', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.getBalance(
+        GetBalanceParams(address: testAddress, asset: tosAsset),
+      );
+
+      expect(result, isNotNull);
+      expect(result.balance, isA<int>());
+      expect(result.balance, greaterThanOrEqualTo(0));
+      expect(result.topoheight, greaterThan(0));
+
+      // Convert atomic units to TOS (8 decimals)
+      final balanceTOS = result.balance / 100000000;
+      print('Balance: $balanceTOS TOS');
+      print('At topoheight: ${result.topoheight}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get stable balance for account', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.getStableBalance(
+        GetStableBalanceParams(address: testAddress, asset: tosAsset),
+      );
+
+      expect(result, isNotNull);
+      expect(result.balance, isA<int>());
+      expect(result.balance, greaterThanOrEqualTo(0));
+      expect(result.stableTopoheight, greaterThan(0));
+      expect(result.stableBlockHash, isNotEmpty);
+
+      // Convert atomic units to TOS
+      final balanceTOS = result.balance / 100000000;
+      print('Stable Balance: $balanceTOS TOS');
+      print('Stable Topoheight: ${result.stableTopoheight}');
+      print('Stable Block Hash: ${result.stableBlockHash}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should verify stable balance <= current balance', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final currentBalance = await client.getBalance(
+        GetBalanceParams(address: testAddress, asset: tosAsset),
+      );
+
+      final stableBalance = await client.getStableBalance(
+        GetStableBalanceParams(address: testAddress, asset: tosAsset),
+      );
+
+      expect(
+        stableBalance.balance,
+        lessThanOrEqualTo(currentBalance.balance),
+      );
+
+      print('Current Balance: ${currentBalance.balance}');
+      print('Stable Balance: ${stableBalance.balance}');
+    }, timeout: const Timeout(Duration(seconds: 15)));
+
+    test('should check if account has nonce', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.hasNonce(
+        HasNonceParams(address: testAddress),
+      );
+
+      expect(result, isNotNull);
+      expect(result.exist, isA<bool>());
+
+      print('Has nonce: ${result.exist}');
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get nonce for account', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      try {
+        final result = await client.getNonce(
+          GetNonceParams(address: testAddress),
+        );
+
+        expect(result, isNotNull);
+        expect(result.topoheight, greaterThan(0));
+
+        print('Nonce topoheight: ${result.topoheight}');
+      } catch (e) {
+        // Account might not have a nonce if it hasn't sent transactions
+        print('Account has no nonce (expected if no outgoing transactions): $e');
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get account assets', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      try {
+        final result = await client.getAccountAssets(
+          GetAccountAssetsParams(address: testAddress),
+        );
+
+        expect(result, isNotNull);
+        expect(result.assets, isA<List>());
+
+        print('Account has ${result.assets.length} different assets');
+
+        for (final asset in result.assets) {
+          print('Asset: $asset');
+        }
+      } catch (e) {
+        // Account might not exist or have no assets
+        print('No assets found for account (might not be registered): $e');
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get account registration topoheight', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      try {
+        final topoheight = await client.getAccountRegistrationTopoheight(
+          GetAccountRegistrationTopoheightParams(address: testAddress),
+        );
+
+        expect(topoheight, greaterThan(0));
+
+        print('Account registered at topoheight: $topoheight');
+      } catch (e) {
+        // Account might not be registered
+        print('Account not registered: $e');
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get balance at specific topoheight', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      // Get stable topoheight first
+      final stableTopoheight = await client.getStableTopoHeight();
+
+      try {
+        final result = await client.getBalanceAtTopoHeight(
+          GetBalanceAtTopoHeightParams(
+            address: testAddress,
+            asset: tosAsset,
+            topoheight: stableTopoheight,
+          ),
+        );
+
+        expect(result, isNotNull);
+
+        print('Balance at topoheight $stableTopoheight: ${result.finalBalance}');
+      } catch (e) {
+        print('Could not get historical balance: $e');
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get account history', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      try {
+        final result = await client.getAccountHistory(
+          GetAccountHistoryParams(
+            address: testAddress,
+            asset: tosAsset,
+            incomingFlow: true,
+            outgoingFlow: true,
+          ),
+        );
+
+        expect(result, isNotNull);
+        expect(result.history, isA<List>());
+
+        print('Account has ${result.history.length} history events');
+
+        if (result.history.isNotEmpty) {
+          final firstEvent = result.history.first;
+          print('First event topoheight: ${firstEvent.topoheight}');
+        }
+      } catch (e) {
+        // Account might not have history
+        print('No history found for account: $e');
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+
+    test('should get list of all accounts', () async {
+      await Future<void>.delayed(const Duration(seconds: 1));
+
+      final result = await client.getAccounts(
+        GetAccountsParams(
+          skip: 0,
+          maximum: 10, // Limit to first 10 accounts
+        ),
+      );
+
+      expect(result, isNotNull);
+      expect(result.accounts, isA<List>());
+
+      print('Found ${result.accounts.length} accounts (limited to 10)');
+
+      if (result.accounts.isNotEmpty) {
+        for (final account in result.accounts.take(3)) {
+          print('Account: $account');
+        }
+      }
+    }, timeout: const Timeout(Duration(seconds: 10)));
+  });
+}

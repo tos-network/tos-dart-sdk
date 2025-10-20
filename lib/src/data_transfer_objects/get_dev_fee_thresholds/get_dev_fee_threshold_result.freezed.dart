@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DevFeeThresholds {
 
-@JsonKey(name: 'height') int get height;@JsonKey(name: 'fee_percentage') int get feePercentage;
+@JsonKey(name: 'blue_score') int get blueScore;@JsonKey(name: 'fee_percentage') int get feePercentage;
 /// Create a copy of DevFeeThresholds
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $DevFeeThresholdsCopyWith<DevFeeThresholds> get copyWith => _$DevFeeThresholdsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DevFeeThresholds&&(identical(other.height, height) || other.height == height)&&(identical(other.feePercentage, feePercentage) || other.feePercentage == feePercentage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DevFeeThresholds&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.feePercentage, feePercentage) || other.feePercentage == feePercentage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,height,feePercentage);
+int get hashCode => Object.hash(runtimeType,blueScore,feePercentage);
 
 @override
 String toString() {
-  return 'DevFeeThresholds(height: $height, feePercentage: $feePercentage)';
+  return 'DevFeeThresholds(blueScore: $blueScore, feePercentage: $feePercentage)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $DevFeeThresholdsCopyWith<$Res>  {
   factory $DevFeeThresholdsCopyWith(DevFeeThresholds value, $Res Function(DevFeeThresholds) _then) = _$DevFeeThresholdsCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'height') int height,@JsonKey(name: 'fee_percentage') int feePercentage
+@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'fee_percentage') int feePercentage
 });
 
 
@@ -65,9 +65,9 @@ class _$DevFeeThresholdsCopyWithImpl<$Res>
 
 /// Create a copy of DevFeeThresholds
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? height = null,Object? feePercentage = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? blueScore = null,Object? feePercentage = null,}) {
   return _then(_self.copyWith(
-height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
 as int,feePercentage: null == feePercentage ? _self.feePercentage : feePercentage // ignore: cast_nullable_to_non_nullable
 as int,
   ));
@@ -154,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'height')  int height, @JsonKey(name: 'fee_percentage')  int feePercentage)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'fee_percentage')  int feePercentage)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _DevFeeThresholds() when $default != null:
-return $default(_that.height,_that.feePercentage);case _:
+return $default(_that.blueScore,_that.feePercentage);case _:
   return orElse();
 
 }
@@ -175,10 +175,10 @@ return $default(_that.height,_that.feePercentage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'height')  int height, @JsonKey(name: 'fee_percentage')  int feePercentage)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'fee_percentage')  int feePercentage)  $default,) {final _that = this;
 switch (_that) {
 case _DevFeeThresholds():
-return $default(_that.height,_that.feePercentage);case _:
+return $default(_that.blueScore,_that.feePercentage);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -195,10 +195,10 @@ return $default(_that.height,_that.feePercentage);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'height')  int height, @JsonKey(name: 'fee_percentage')  int feePercentage)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'fee_percentage')  int feePercentage)?  $default,) {final _that = this;
 switch (_that) {
 case _DevFeeThresholds() when $default != null:
-return $default(_that.height,_that.feePercentage);case _:
+return $default(_that.blueScore,_that.feePercentage);case _:
   return null;
 
 }
@@ -210,10 +210,10 @@ return $default(_that.height,_that.feePercentage);case _:
 @JsonSerializable()
 
 class _DevFeeThresholds implements DevFeeThresholds {
-  const _DevFeeThresholds({@JsonKey(name: 'height') required this.height, @JsonKey(name: 'fee_percentage') required this.feePercentage});
+  const _DevFeeThresholds({@JsonKey(name: 'blue_score') required this.blueScore, @JsonKey(name: 'fee_percentage') required this.feePercentage});
   factory _DevFeeThresholds.fromJson(Map<String, dynamic> json) => _$DevFeeThresholdsFromJson(json);
 
-@override@JsonKey(name: 'height') final  int height;
+@override@JsonKey(name: 'blue_score') final  int blueScore;
 @override@JsonKey(name: 'fee_percentage') final  int feePercentage;
 
 /// Create a copy of DevFeeThresholds
@@ -229,16 +229,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DevFeeThresholds&&(identical(other.height, height) || other.height == height)&&(identical(other.feePercentage, feePercentage) || other.feePercentage == feePercentage));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DevFeeThresholds&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.feePercentage, feePercentage) || other.feePercentage == feePercentage));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,height,feePercentage);
+int get hashCode => Object.hash(runtimeType,blueScore,feePercentage);
 
 @override
 String toString() {
-  return 'DevFeeThresholds(height: $height, feePercentage: $feePercentage)';
+  return 'DevFeeThresholds(blueScore: $blueScore, feePercentage: $feePercentage)';
 }
 
 
@@ -249,7 +249,7 @@ abstract mixin class _$DevFeeThresholdsCopyWith<$Res> implements $DevFeeThreshol
   factory _$DevFeeThresholdsCopyWith(_DevFeeThresholds value, $Res Function(_DevFeeThresholds) _then) = __$DevFeeThresholdsCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'height') int height,@JsonKey(name: 'fee_percentage') int feePercentage
+@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'fee_percentage') int feePercentage
 });
 
 
@@ -266,9 +266,9 @@ class __$DevFeeThresholdsCopyWithImpl<$Res>
 
 /// Create a copy of DevFeeThresholds
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? height = null,Object? feePercentage = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? blueScore = null,Object? feePercentage = null,}) {
   return _then(_DevFeeThresholds(
-height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
+blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
 as int,feePercentage: null == feePercentage ? _self.feePercentage : feePercentage // ignore: cast_nullable_to_non_nullable
 as int,
   ));

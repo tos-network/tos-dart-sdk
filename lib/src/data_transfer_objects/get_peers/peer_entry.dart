@@ -19,7 +19,7 @@ abstract class PeerEntry with _$PeerEntry {
     @JsonKey(name: 'connected_on') required int connectedOn,
     @JsonKey(name: 'cumulative_difficulty')
     required String cumulativeDifficulty,
-    @JsonKey(name: 'height') required int height,
+    @JsonKey(name: 'blue_score') required int blueScore,
     @JsonKey(name: 'id') required int id,
     @JsonKey(name: 'last_ping') required int lastPing,
     @JsonKey(name: 'local_port') required int localPort,

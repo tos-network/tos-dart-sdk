@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GetStableBalanceResult {
 
-@JsonKey(name: 'version') BalanceVersion get versionedBalance;@JsonKey(name: 'stable_topoheight') int get stableTopoheight;@JsonKey(name: 'stable_block_hash') String get stableBlockHash;
+@JsonKey(name: 'balance') int get balance;@JsonKey(name: 'stable_topoheight') int get stableTopoheight;@JsonKey(name: 'stable_block_hash') String get stableBlockHash;
 /// Create a copy of GetStableBalanceResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GetStableBalanceResultCopyWith<GetStableBalanceResult> get copyWith => _$GetSta
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetStableBalanceResult&&(identical(other.versionedBalance, versionedBalance) || other.versionedBalance == versionedBalance)&&(identical(other.stableTopoheight, stableTopoheight) || other.stableTopoheight == stableTopoheight)&&(identical(other.stableBlockHash, stableBlockHash) || other.stableBlockHash == stableBlockHash));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetStableBalanceResult&&(identical(other.balance, balance) || other.balance == balance)&&(identical(other.stableTopoheight, stableTopoheight) || other.stableTopoheight == stableTopoheight)&&(identical(other.stableBlockHash, stableBlockHash) || other.stableBlockHash == stableBlockHash));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,versionedBalance,stableTopoheight,stableBlockHash);
+int get hashCode => Object.hash(runtimeType,balance,stableTopoheight,stableBlockHash);
 
 @override
 String toString() {
-  return 'GetStableBalanceResult(versionedBalance: $versionedBalance, stableTopoheight: $stableTopoheight, stableBlockHash: $stableBlockHash)';
+  return 'GetStableBalanceResult(balance: $balance, stableTopoheight: $stableTopoheight, stableBlockHash: $stableBlockHash)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $GetStableBalanceResultCopyWith<$Res>  {
   factory $GetStableBalanceResultCopyWith(GetStableBalanceResult value, $Res Function(GetStableBalanceResult) _then) = _$GetStableBalanceResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'version') BalanceVersion versionedBalance,@JsonKey(name: 'stable_topoheight') int stableTopoheight,@JsonKey(name: 'stable_block_hash') String stableBlockHash
+@JsonKey(name: 'balance') int balance,@JsonKey(name: 'stable_topoheight') int stableTopoheight,@JsonKey(name: 'stable_block_hash') String stableBlockHash
 });
 
 
-$BalanceVersionCopyWith<$Res> get versionedBalance;
+
 
 }
 /// @nodoc
@@ -65,24 +65,15 @@ class _$GetStableBalanceResultCopyWithImpl<$Res>
 
 /// Create a copy of GetStableBalanceResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? versionedBalance = null,Object? stableTopoheight = null,Object? stableBlockHash = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? balance = null,Object? stableTopoheight = null,Object? stableBlockHash = null,}) {
   return _then(_self.copyWith(
-versionedBalance: null == versionedBalance ? _self.versionedBalance : versionedBalance // ignore: cast_nullable_to_non_nullable
-as BalanceVersion,stableTopoheight: null == stableTopoheight ? _self.stableTopoheight : stableTopoheight // ignore: cast_nullable_to_non_nullable
+balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
+as int,stableTopoheight: null == stableTopoheight ? _self.stableTopoheight : stableTopoheight // ignore: cast_nullable_to_non_nullable
 as int,stableBlockHash: null == stableBlockHash ? _self.stableBlockHash : stableBlockHash // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
-/// Create a copy of GetStableBalanceResult
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BalanceVersionCopyWith<$Res> get versionedBalance {
-  
-  return $BalanceVersionCopyWith<$Res>(_self.versionedBalance, (value) {
-    return _then(_self.copyWith(versionedBalance: value));
-  });
-}
+
 }
 
 
@@ -164,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetStableBalanceResult() when $default != null:
-return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockHash);case _:
+return $default(_that.balance,_that.stableTopoheight,_that.stableBlockHash);case _:
   return orElse();
 
 }
@@ -185,10 +176,10 @@ return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockH
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)  $default,) {final _that = this;
 switch (_that) {
 case _GetStableBalanceResult():
-return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockHash);case _:
+return $default(_that.balance,_that.stableTopoheight,_that.stableBlockHash);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -205,10 +196,10 @@ return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockH
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'stable_topoheight')  int stableTopoheight, @JsonKey(name: 'stable_block_hash')  String stableBlockHash)?  $default,) {final _that = this;
 switch (_that) {
 case _GetStableBalanceResult() when $default != null:
-return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockHash);case _:
+return $default(_that.balance,_that.stableTopoheight,_that.stableBlockHash);case _:
   return null;
 
 }
@@ -220,10 +211,10 @@ return $default(_that.versionedBalance,_that.stableTopoheight,_that.stableBlockH
 @JsonSerializable()
 
 class _GetStableBalanceResult implements GetStableBalanceResult {
-  const _GetStableBalanceResult({@JsonKey(name: 'version') required this.versionedBalance, @JsonKey(name: 'stable_topoheight') required this.stableTopoheight, @JsonKey(name: 'stable_block_hash') required this.stableBlockHash});
+  const _GetStableBalanceResult({@JsonKey(name: 'balance') required this.balance, @JsonKey(name: 'stable_topoheight') required this.stableTopoheight, @JsonKey(name: 'stable_block_hash') required this.stableBlockHash});
   factory _GetStableBalanceResult.fromJson(Map<String, dynamic> json) => _$GetStableBalanceResultFromJson(json);
 
-@override@JsonKey(name: 'version') final  BalanceVersion versionedBalance;
+@override@JsonKey(name: 'balance') final  int balance;
 @override@JsonKey(name: 'stable_topoheight') final  int stableTopoheight;
 @override@JsonKey(name: 'stable_block_hash') final  String stableBlockHash;
 
@@ -240,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetStableBalanceResult&&(identical(other.versionedBalance, versionedBalance) || other.versionedBalance == versionedBalance)&&(identical(other.stableTopoheight, stableTopoheight) || other.stableTopoheight == stableTopoheight)&&(identical(other.stableBlockHash, stableBlockHash) || other.stableBlockHash == stableBlockHash));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetStableBalanceResult&&(identical(other.balance, balance) || other.balance == balance)&&(identical(other.stableTopoheight, stableTopoheight) || other.stableTopoheight == stableTopoheight)&&(identical(other.stableBlockHash, stableBlockHash) || other.stableBlockHash == stableBlockHash));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,versionedBalance,stableTopoheight,stableBlockHash);
+int get hashCode => Object.hash(runtimeType,balance,stableTopoheight,stableBlockHash);
 
 @override
 String toString() {
-  return 'GetStableBalanceResult(versionedBalance: $versionedBalance, stableTopoheight: $stableTopoheight, stableBlockHash: $stableBlockHash)';
+  return 'GetStableBalanceResult(balance: $balance, stableTopoheight: $stableTopoheight, stableBlockHash: $stableBlockHash)';
 }
 
 
@@ -260,11 +251,11 @@ abstract mixin class _$GetStableBalanceResultCopyWith<$Res> implements $GetStabl
   factory _$GetStableBalanceResultCopyWith(_GetStableBalanceResult value, $Res Function(_GetStableBalanceResult) _then) = __$GetStableBalanceResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'version') BalanceVersion versionedBalance,@JsonKey(name: 'stable_topoheight') int stableTopoheight,@JsonKey(name: 'stable_block_hash') String stableBlockHash
+@JsonKey(name: 'balance') int balance,@JsonKey(name: 'stable_topoheight') int stableTopoheight,@JsonKey(name: 'stable_block_hash') String stableBlockHash
 });
 
 
-@override $BalanceVersionCopyWith<$Res> get versionedBalance;
+
 
 }
 /// @nodoc
@@ -277,25 +268,16 @@ class __$GetStableBalanceResultCopyWithImpl<$Res>
 
 /// Create a copy of GetStableBalanceResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? versionedBalance = null,Object? stableTopoheight = null,Object? stableBlockHash = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? balance = null,Object? stableTopoheight = null,Object? stableBlockHash = null,}) {
   return _then(_GetStableBalanceResult(
-versionedBalance: null == versionedBalance ? _self.versionedBalance : versionedBalance // ignore: cast_nullable_to_non_nullable
-as BalanceVersion,stableTopoheight: null == stableTopoheight ? _self.stableTopoheight : stableTopoheight // ignore: cast_nullable_to_non_nullable
+balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
+as int,stableTopoheight: null == stableTopoheight ? _self.stableTopoheight : stableTopoheight // ignore: cast_nullable_to_non_nullable
 as int,stableBlockHash: null == stableBlockHash ? _self.stableBlockHash : stableBlockHash // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
 
-/// Create a copy of GetStableBalanceResult
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BalanceVersionCopyWith<$Res> get versionedBalance {
-  
-  return $BalanceVersionCopyWith<$Res>(_self.versionedBalance, (value) {
-    return _then(_self.copyWith(versionedBalance: value));
-  });
-}
+
 }
 
 // dart format on

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$BalanceVersion {
 
-@JsonKey(name: 'balance_type') String get balanceType;@JsonKey(name: 'final_balance') Map<String, dynamic> get finalBalance;@JsonKey(name: 'output_balance') Map<String, dynamic>? get outputBalance;@JsonKey(name: 'previous_topoheight') int? get previousTopoheight;
+@JsonKey(name: 'balance_type') String get balanceType;@JsonKey(name: 'final_balance') int get finalBalance;@JsonKey(name: 'output_balance') int? get outputBalance;@JsonKey(name: 'previous_topoheight') int? get previousTopoheight;
 /// Create a copy of BalanceVersion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,12 +28,12 @@ $BalanceVersionCopyWith<BalanceVersion> get copyWith => _$BalanceVersionCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BalanceVersion&&(identical(other.balanceType, balanceType) || other.balanceType == balanceType)&&const DeepCollectionEquality().equals(other.finalBalance, finalBalance)&&const DeepCollectionEquality().equals(other.outputBalance, outputBalance)&&(identical(other.previousTopoheight, previousTopoheight) || other.previousTopoheight == previousTopoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BalanceVersion&&(identical(other.balanceType, balanceType) || other.balanceType == balanceType)&&(identical(other.finalBalance, finalBalance) || other.finalBalance == finalBalance)&&(identical(other.outputBalance, outputBalance) || other.outputBalance == outputBalance)&&(identical(other.previousTopoheight, previousTopoheight) || other.previousTopoheight == previousTopoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balanceType,const DeepCollectionEquality().hash(finalBalance),const DeepCollectionEquality().hash(outputBalance),previousTopoheight);
+int get hashCode => Object.hash(runtimeType,balanceType,finalBalance,outputBalance,previousTopoheight);
 
 @override
 String toString() {
@@ -48,7 +48,7 @@ abstract mixin class $BalanceVersionCopyWith<$Res>  {
   factory $BalanceVersionCopyWith(BalanceVersion value, $Res Function(BalanceVersion) _then) = _$BalanceVersionCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'balance_type') String balanceType,@JsonKey(name: 'final_balance') Map<String, dynamic> finalBalance,@JsonKey(name: 'output_balance') Map<String, dynamic>? outputBalance,@JsonKey(name: 'previous_topoheight') int? previousTopoheight
+@JsonKey(name: 'balance_type') String balanceType,@JsonKey(name: 'final_balance') int finalBalance,@JsonKey(name: 'output_balance') int? outputBalance,@JsonKey(name: 'previous_topoheight') int? previousTopoheight
 });
 
 
@@ -69,8 +69,8 @@ class _$BalanceVersionCopyWithImpl<$Res>
   return _then(_self.copyWith(
 balanceType: null == balanceType ? _self.balanceType : balanceType // ignore: cast_nullable_to_non_nullable
 as String,finalBalance: null == finalBalance ? _self.finalBalance : finalBalance // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,outputBalance: freezed == outputBalance ? _self.outputBalance : outputBalance // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,previousTopoheight: freezed == previousTopoheight ? _self.previousTopoheight : previousTopoheight // ignore: cast_nullable_to_non_nullable
+as int,outputBalance: freezed == outputBalance ? _self.outputBalance : outputBalance // ignore: cast_nullable_to_non_nullable
+as int?,previousTopoheight: freezed == previousTopoheight ? _self.previousTopoheight : previousTopoheight // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
 }
@@ -156,7 +156,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  Map<String, dynamic> finalBalance, @JsonKey(name: 'output_balance')  Map<String, dynamic>? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  int finalBalance, @JsonKey(name: 'output_balance')  int? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _BalanceVersion() when $default != null:
 return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.previousTopoheight);case _:
@@ -177,7 +177,7 @@ return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  Map<String, dynamic> finalBalance, @JsonKey(name: 'output_balance')  Map<String, dynamic>? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  int finalBalance, @JsonKey(name: 'output_balance')  int? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)  $default,) {final _that = this;
 switch (_that) {
 case _BalanceVersion():
 return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.previousTopoheight);case _:
@@ -197,7 +197,7 @@ return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.p
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  Map<String, dynamic> finalBalance, @JsonKey(name: 'output_balance')  Map<String, dynamic>? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance_type')  String balanceType, @JsonKey(name: 'final_balance')  int finalBalance, @JsonKey(name: 'output_balance')  int? outputBalance, @JsonKey(name: 'previous_topoheight')  int? previousTopoheight)?  $default,) {final _that = this;
 switch (_that) {
 case _BalanceVersion() when $default != null:
 return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.previousTopoheight);case _:
@@ -212,26 +212,12 @@ return $default(_that.balanceType,_that.finalBalance,_that.outputBalance,_that.p
 @JsonSerializable()
 
 class _BalanceVersion implements BalanceVersion {
-  const _BalanceVersion({@JsonKey(name: 'balance_type') required this.balanceType, @JsonKey(name: 'final_balance') required final  Map<String, dynamic> finalBalance, @JsonKey(name: 'output_balance') final  Map<String, dynamic>? outputBalance, @JsonKey(name: 'previous_topoheight') this.previousTopoheight}): _finalBalance = finalBalance,_outputBalance = outputBalance;
+  const _BalanceVersion({@JsonKey(name: 'balance_type') required this.balanceType, @JsonKey(name: 'final_balance') required this.finalBalance, @JsonKey(name: 'output_balance') this.outputBalance, @JsonKey(name: 'previous_topoheight') this.previousTopoheight});
   factory _BalanceVersion.fromJson(Map<String, dynamic> json) => _$BalanceVersionFromJson(json);
 
 @override@JsonKey(name: 'balance_type') final  String balanceType;
- final  Map<String, dynamic> _finalBalance;
-@override@JsonKey(name: 'final_balance') Map<String, dynamic> get finalBalance {
-  if (_finalBalance is EqualUnmodifiableMapView) return _finalBalance;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(_finalBalance);
-}
-
- final  Map<String, dynamic>? _outputBalance;
-@override@JsonKey(name: 'output_balance') Map<String, dynamic>? get outputBalance {
-  final value = _outputBalance;
-  if (value == null) return null;
-  if (_outputBalance is EqualUnmodifiableMapView) return _outputBalance;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableMapView(value);
-}
-
+@override@JsonKey(name: 'final_balance') final  int finalBalance;
+@override@JsonKey(name: 'output_balance') final  int? outputBalance;
 @override@JsonKey(name: 'previous_topoheight') final  int? previousTopoheight;
 
 /// Create a copy of BalanceVersion
@@ -247,12 +233,12 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BalanceVersion&&(identical(other.balanceType, balanceType) || other.balanceType == balanceType)&&const DeepCollectionEquality().equals(other._finalBalance, _finalBalance)&&const DeepCollectionEquality().equals(other._outputBalance, _outputBalance)&&(identical(other.previousTopoheight, previousTopoheight) || other.previousTopoheight == previousTopoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BalanceVersion&&(identical(other.balanceType, balanceType) || other.balanceType == balanceType)&&(identical(other.finalBalance, finalBalance) || other.finalBalance == finalBalance)&&(identical(other.outputBalance, outputBalance) || other.outputBalance == outputBalance)&&(identical(other.previousTopoheight, previousTopoheight) || other.previousTopoheight == previousTopoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,balanceType,const DeepCollectionEquality().hash(_finalBalance),const DeepCollectionEquality().hash(_outputBalance),previousTopoheight);
+int get hashCode => Object.hash(runtimeType,balanceType,finalBalance,outputBalance,previousTopoheight);
 
 @override
 String toString() {
@@ -267,7 +253,7 @@ abstract mixin class _$BalanceVersionCopyWith<$Res> implements $BalanceVersionCo
   factory _$BalanceVersionCopyWith(_BalanceVersion value, $Res Function(_BalanceVersion) _then) = __$BalanceVersionCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'balance_type') String balanceType,@JsonKey(name: 'final_balance') Map<String, dynamic> finalBalance,@JsonKey(name: 'output_balance') Map<String, dynamic>? outputBalance,@JsonKey(name: 'previous_topoheight') int? previousTopoheight
+@JsonKey(name: 'balance_type') String balanceType,@JsonKey(name: 'final_balance') int finalBalance,@JsonKey(name: 'output_balance') int? outputBalance,@JsonKey(name: 'previous_topoheight') int? previousTopoheight
 });
 
 
@@ -287,9 +273,9 @@ class __$BalanceVersionCopyWithImpl<$Res>
 @override @pragma('vm:prefer-inline') $Res call({Object? balanceType = null,Object? finalBalance = null,Object? outputBalance = freezed,Object? previousTopoheight = freezed,}) {
   return _then(_BalanceVersion(
 balanceType: null == balanceType ? _self.balanceType : balanceType // ignore: cast_nullable_to_non_nullable
-as String,finalBalance: null == finalBalance ? _self._finalBalance : finalBalance // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>,outputBalance: freezed == outputBalance ? _self._outputBalance : outputBalance // ignore: cast_nullable_to_non_nullable
-as Map<String, dynamic>?,previousTopoheight: freezed == previousTopoheight ? _self.previousTopoheight : previousTopoheight // ignore: cast_nullable_to_non_nullable
+as String,finalBalance: null == finalBalance ? _self.finalBalance : finalBalance // ignore: cast_nullable_to_non_nullable
+as int,outputBalance: freezed == outputBalance ? _self.outputBalance : outputBalance // ignore: cast_nullable_to_non_nullable
+as int?,previousTopoheight: freezed == previousTopoheight ? _self.previousTopoheight : previousTopoheight // ignore: cast_nullable_to_non_nullable
 as int?,
   ));
 }

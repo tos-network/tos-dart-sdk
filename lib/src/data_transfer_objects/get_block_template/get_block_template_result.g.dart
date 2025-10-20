@@ -12,7 +12,7 @@ _GetBlockTemplateResult _$GetBlockTemplateResultFromJson(
   Map<String, dynamic> json,
 ) => _GetBlockTemplateResult(
   difficulty: (json['difficulty'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
+  blueScore: (json['blue_score'] as num).toInt(),
   topoheight: (json['topoheight'] as num).toInt(),
   template: json['template'] as String,
   algorithm: json['algorithm'] as String,
@@ -22,7 +22,7 @@ Map<String, dynamic> _$GetBlockTemplateResultToJson(
   _GetBlockTemplateResult instance,
 ) => <String, dynamic>{
   'difficulty': instance.difficulty,
-  'height': instance.height,
+  'blue_score': instance.blueScore,
   'topoheight': instance.topoheight,
   'template': instance.template,
   'algorithm': instance.algorithm,

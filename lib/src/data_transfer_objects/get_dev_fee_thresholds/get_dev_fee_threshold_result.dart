@@ -12,7 +12,7 @@ part 'get_dev_fee_threshold_result.g.dart';
 abstract class DevFeeThresholds with _$DevFeeThresholds {
   /// @nodoc
   const factory DevFeeThresholds({
-    @JsonKey(name: 'height') required int height,
+    @JsonKey(name: 'blue_score') required int blueScore,
     @JsonKey(name: 'fee_percentage') required int feePercentage,
   }) = _DevFeeThresholds;
 

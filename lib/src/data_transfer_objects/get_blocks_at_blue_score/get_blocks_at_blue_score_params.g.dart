@@ -2,22 +2,22 @@
 
 // ignore_for_file: package_api_docs, non_constant_identifier_names
 
-part of 'get_blocks_at_height_params.dart';
+part of 'get_blocks_at_blue_score_params.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_GetBlocksAtHeightParams _$GetBlocksAtHeightParamsFromJson(
+_GetBlocksAtBlueScoreParams _$GetBlocksAtBlueScoreParamsFromJson(
   Map<String, dynamic> json,
-) => _GetBlocksAtHeightParams(
-  height: (json['height'] as num).toInt(),
+) => _GetBlocksAtBlueScoreParams(
+  blueScore: (json['blue_score'] as num).toInt(),
   includeTxs: json['include_txs'] as bool?,
 );
 
-Map<String, dynamic> _$GetBlocksAtHeightParamsToJson(
-  _GetBlocksAtHeightParams instance,
+Map<String, dynamic> _$GetBlocksAtBlueScoreParamsToJson(
+  _GetBlocksAtBlueScoreParams instance,
 ) => <String, dynamic>{
-  'height': instance.height,
+  'blue_score': instance.blueScore,
   'include_txs': ?instance.includeTxs,
 };

@@ -3,8 +3,6 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:tos_dart_sdk/tos_dart_sdk.dart';
-
 part 'get_balance_result.freezed.dart';
 
 part 'get_balance_result.g.dart';
@@ -14,7 +12,7 @@ part 'get_balance_result.g.dart';
 abstract class GetBalanceResult with _$GetBalanceResult {
   /// @nodoc
   const factory GetBalanceResult({
-    @JsonKey(name: 'version') required BalanceVersion versionedBalance,
+    @JsonKey(name: 'balance') required int balance,
     @JsonKey(name: 'topoheight') required int topoheight,
   }) = _GetBalanceResult;
 

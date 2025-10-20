@@ -2,7 +2,6 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tos_dart_sdk/tos_dart_sdk.dart';
 
 part 'get_stable_balance_result.freezed.dart';
 
@@ -13,7 +12,7 @@ part 'get_stable_balance_result.g.dart';
 abstract class GetStableBalanceResult with _$GetStableBalanceResult {
   /// @nodoc
   const factory GetStableBalanceResult({
-    @JsonKey(name: 'version') required BalanceVersion versionedBalance,
+    @JsonKey(name: 'balance') required int balance,
     @JsonKey(name: 'stable_topoheight') required int stableTopoheight,
     @JsonKey(name: 'stable_block_hash') required String stableBlockHash,
   }) = _GetStableBalanceResult;

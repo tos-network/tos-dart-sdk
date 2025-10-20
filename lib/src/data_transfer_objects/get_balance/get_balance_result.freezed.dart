@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GetBalanceResult {
 
-@JsonKey(name: 'version') BalanceVersion get versionedBalance;@JsonKey(name: 'topoheight') int get topoheight;
+@JsonKey(name: 'balance') int get balance;@JsonKey(name: 'topoheight') int get topoheight;
 /// Create a copy of GetBalanceResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GetBalanceResultCopyWith<GetBalanceResult> get copyWith => _$GetBalanceResultCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetBalanceResult&&(identical(other.versionedBalance, versionedBalance) || other.versionedBalance == versionedBalance)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetBalanceResult&&(identical(other.balance, balance) || other.balance == balance)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,versionedBalance,topoheight);
+int get hashCode => Object.hash(runtimeType,balance,topoheight);
 
 @override
 String toString() {
-  return 'GetBalanceResult(versionedBalance: $versionedBalance, topoheight: $topoheight)';
+  return 'GetBalanceResult(balance: $balance, topoheight: $topoheight)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $GetBalanceResultCopyWith<$Res>  {
   factory $GetBalanceResultCopyWith(GetBalanceResult value, $Res Function(GetBalanceResult) _then) = _$GetBalanceResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'version') BalanceVersion versionedBalance,@JsonKey(name: 'topoheight') int topoheight
+@JsonKey(name: 'balance') int balance,@JsonKey(name: 'topoheight') int topoheight
 });
 
 
-$BalanceVersionCopyWith<$Res> get versionedBalance;
+
 
 }
 /// @nodoc
@@ -65,23 +65,14 @@ class _$GetBalanceResultCopyWithImpl<$Res>
 
 /// Create a copy of GetBalanceResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? versionedBalance = null,Object? topoheight = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? balance = null,Object? topoheight = null,}) {
   return _then(_self.copyWith(
-versionedBalance: null == versionedBalance ? _self.versionedBalance : versionedBalance // ignore: cast_nullable_to_non_nullable
-as BalanceVersion,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
+balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
+as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
-/// Create a copy of GetBalanceResult
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BalanceVersionCopyWith<$Res> get versionedBalance {
-  
-  return $BalanceVersionCopyWith<$Res>(_self.versionedBalance, (value) {
-    return _then(_self.copyWith(versionedBalance: value));
-  });
-}
+
 }
 
 
@@ -163,10 +154,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'topoheight')  int topoheight)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'topoheight')  int topoheight)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetBalanceResult() when $default != null:
-return $default(_that.versionedBalance,_that.topoheight);case _:
+return $default(_that.balance,_that.topoheight);case _:
   return orElse();
 
 }
@@ -184,10 +175,10 @@ return $default(_that.versionedBalance,_that.topoheight);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'topoheight')  int topoheight)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'topoheight')  int topoheight)  $default,) {final _that = this;
 switch (_that) {
 case _GetBalanceResult():
-return $default(_that.versionedBalance,_that.topoheight);case _:
+return $default(_that.balance,_that.topoheight);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -204,10 +195,10 @@ return $default(_that.versionedBalance,_that.topoheight);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'version')  BalanceVersion versionedBalance, @JsonKey(name: 'topoheight')  int topoheight)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'balance')  int balance, @JsonKey(name: 'topoheight')  int topoheight)?  $default,) {final _that = this;
 switch (_that) {
 case _GetBalanceResult() when $default != null:
-return $default(_that.versionedBalance,_that.topoheight);case _:
+return $default(_that.balance,_that.topoheight);case _:
   return null;
 
 }
@@ -219,10 +210,10 @@ return $default(_that.versionedBalance,_that.topoheight);case _:
 @JsonSerializable()
 
 class _GetBalanceResult implements GetBalanceResult {
-  const _GetBalanceResult({@JsonKey(name: 'version') required this.versionedBalance, @JsonKey(name: 'topoheight') required this.topoheight});
+  const _GetBalanceResult({@JsonKey(name: 'balance') required this.balance, @JsonKey(name: 'topoheight') required this.topoheight});
   factory _GetBalanceResult.fromJson(Map<String, dynamic> json) => _$GetBalanceResultFromJson(json);
 
-@override@JsonKey(name: 'version') final  BalanceVersion versionedBalance;
+@override@JsonKey(name: 'balance') final  int balance;
 @override@JsonKey(name: 'topoheight') final  int topoheight;
 
 /// Create a copy of GetBalanceResult
@@ -238,16 +229,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetBalanceResult&&(identical(other.versionedBalance, versionedBalance) || other.versionedBalance == versionedBalance)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetBalanceResult&&(identical(other.balance, balance) || other.balance == balance)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,versionedBalance,topoheight);
+int get hashCode => Object.hash(runtimeType,balance,topoheight);
 
 @override
 String toString() {
-  return 'GetBalanceResult(versionedBalance: $versionedBalance, topoheight: $topoheight)';
+  return 'GetBalanceResult(balance: $balance, topoheight: $topoheight)';
 }
 
 
@@ -258,11 +249,11 @@ abstract mixin class _$GetBalanceResultCopyWith<$Res> implements $GetBalanceResu
   factory _$GetBalanceResultCopyWith(_GetBalanceResult value, $Res Function(_GetBalanceResult) _then) = __$GetBalanceResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'version') BalanceVersion versionedBalance,@JsonKey(name: 'topoheight') int topoheight
+@JsonKey(name: 'balance') int balance,@JsonKey(name: 'topoheight') int topoheight
 });
 
 
-@override $BalanceVersionCopyWith<$Res> get versionedBalance;
+
 
 }
 /// @nodoc
@@ -275,24 +266,15 @@ class __$GetBalanceResultCopyWithImpl<$Res>
 
 /// Create a copy of GetBalanceResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? versionedBalance = null,Object? topoheight = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? balance = null,Object? topoheight = null,}) {
   return _then(_GetBalanceResult(
-versionedBalance: null == versionedBalance ? _self.versionedBalance : versionedBalance // ignore: cast_nullable_to_non_nullable
-as BalanceVersion,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
+balance: null == balance ? _self.balance : balance // ignore: cast_nullable_to_non_nullable
+as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
 
-/// Create a copy of GetBalanceResult
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BalanceVersionCopyWith<$Res> get versionedBalance {
-  
-  return $BalanceVersionCopyWith<$Res>(_self.versionedBalance, (value) {
-    return _then(_self.copyWith(versionedBalance: value));
-  });
-}
+
 }
 
 // dart format on
