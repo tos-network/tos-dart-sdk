@@ -15,8 +15,7 @@ abstract class Block with _$Block {
   /// @nodoc
   const factory Block({
     @JsonKey(name: 'block_type') required String blockType,
-    @JsonKey(name: 'cumulative_difficulty')
-    String? cumulativeDifficulty,
+    @JsonKey(name: 'cumulative_difficulty') String? cumulativeDifficulty,
     @JsonKey(name: 'difficulty') String? difficulty,
     @JsonKey(name: 'extra_nonce') String? extraNonce,
     @JsonKey(name: 'hash') required String hash,

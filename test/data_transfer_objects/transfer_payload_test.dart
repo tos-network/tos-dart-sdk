@@ -5,7 +5,8 @@ void main() {
   group('TransferPayload', () {
     test('should create from valid JSON with required fields', () {
       final json = {
-        'asset': '0000000000000000000000000000000000000000000000000000000000000000',
+        'asset':
+            '0000000000000000000000000000000000000000000000000000000000000000',
         'destination': 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'amount': 1000000,
       };
@@ -28,7 +29,8 @@ void main() {
 
     test('should create from JSON with extra_data', () {
       final json = {
-        'asset': '0000000000000000000000000000000000000000000000000000000000000000',
+        'asset':
+            '0000000000000000000000000000000000000000000000000000000000000000',
         'destination': 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'amount': 1000000,
         'extra_data': {'memo': 'Payment for services'},
@@ -42,7 +44,8 @@ void main() {
 
     test('should serialize to JSON correctly', () {
       const transfer = TransferPayload(
-        asset: '0000000000000000000000000000000000000000000000000000000000000000',
+        asset:
+            '0000000000000000000000000000000000000000000000000000000000000000',
         destination: 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         amount: 1000000,
       );
@@ -64,7 +67,8 @@ void main() {
 
     test('should handle zero amount', () {
       final json = {
-        'asset': '0000000000000000000000000000000000000000000000000000000000000000',
+        'asset':
+            '0000000000000000000000000000000000000000000000000000000000000000',
         'destination': 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'amount': 0,
       };
@@ -76,7 +80,8 @@ void main() {
 
     test('should handle large amounts', () {
       final json = {
-        'asset': '0000000000000000000000000000000000000000000000000000000000000000',
+        'asset':
+            '0000000000000000000000000000000000000000000000000000000000000000',
         'destination': 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'amount': 9223372036854775807, // max int64
       };
@@ -102,19 +107,22 @@ void main() {
 
     test('should support equality comparison', () {
       const transfer1 = TransferPayload(
-        asset: '0000000000000000000000000000000000000000000000000000000000000000',
+        asset:
+            '0000000000000000000000000000000000000000000000000000000000000000',
         destination: 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         amount: 1000000,
       );
 
       const transfer2 = TransferPayload(
-        asset: '0000000000000000000000000000000000000000000000000000000000000000',
+        asset:
+            '0000000000000000000000000000000000000000000000000000000000000000',
         destination: 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         amount: 1000000,
       );
 
       const transfer3 = TransferPayload(
-        asset: '0000000000000000000000000000000000000000000000000000000000000000',
+        asset:
+            '0000000000000000000000000000000000000000000000000000000000000000',
         destination: 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         amount: 2000000,
       );
@@ -125,7 +133,8 @@ void main() {
 
     test('should handle destination as string', () {
       final json = {
-        'asset': '0000000000000000000000000000000000000000000000000000000000000000',
+        'asset':
+            '0000000000000000000000000000000000000000000000000000000000000000',
         'destination': 'tos1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
         'amount': 1000000,
       };
