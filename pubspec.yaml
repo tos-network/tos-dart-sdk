@@ -1,6 +1,6 @@
 name: tos_dart_sdk
 description: Software Development Kit in Dart to build Apps for the TOS Blockchain.
-version: 0.29.3
+version: 0.29.4
 repository: https://github.com/tos-network/tos-dart-sdk
 
 environment:

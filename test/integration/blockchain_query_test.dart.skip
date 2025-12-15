@@ -27,13 +27,13 @@ void main() {
 
       expect(topBlock, isNotNull);
       expect(topBlock.hash, isNotEmpty);
-      expect(topBlock.blueScore, greaterThan(0));
+      expect(topBlock.height, greaterThan(0));
       expect(topBlock.blockType, isNotEmpty);
       expect(topBlock.timestamp, greaterThan(0));
       expect(topBlock.version, greaterThan(0));
 
       print('Top Block Hash: ${topBlock.hash}');
-      print('Blue Score: ${topBlock.blueScore}');
+      print('Height: ${topBlock.height}');
       print('Block Type: ${topBlock.blockType}');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
@@ -50,31 +50,31 @@ void main() {
 
       expect(block, isNotNull);
       expect(block.hash, isNotEmpty);
-      expect(block.blueScore, greaterThan(0));
+      expect(block.height, greaterThan(0));
 
       print('Block at topoheight $topoheight: ${block.hash}');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
-    test('should get blocks at blue score', () async {
+    test('should get blocks at height', () async {
       await Future<void>.delayed(const Duration(seconds: 1));
 
-      // Get current blue score
-      final blueScore = await client.getBlueScore();
-      final targetBlueScore = blueScore - 50; // Go back 50 blue scores
+      // Get current height
+      final height = await client.getHeight();
+      final targetHeight = height - 50; // Go back 50 heights
 
-      final blocks = await client.getBlocksAtBlueScore(
-        GetBlocksAtBlueScoreParams(blueScore: targetBlueScore),
+      final blocks = await client.getBlocksAtHeight(
+        GetBlocksAtHeightParams(height: targetHeight),
       );
 
       expect(blocks, isNotNull);
       expect(blocks, isNotEmpty);
 
       for (final block in blocks) {
-        expect(block.blueScore, equals(targetBlueScore));
+        expect(block.height, equals(targetHeight));
         expect(block.hash, isNotEmpty);
       }
 
-      print('Found ${blocks.length} blocks at blue score $targetBlueScore');
+      print('Found ${blocks.length} blocks at height $targetHeight');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
     test('should get tips from testnet', () async {

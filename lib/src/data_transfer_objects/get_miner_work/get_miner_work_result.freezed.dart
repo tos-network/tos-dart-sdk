@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GetMinerWorkResult {
 
-@JsonKey(name: 'algorithm') String get algorithm;@JsonKey(name: 'miner_work') String get minerWork;@JsonKey(name: 'blue_score') int get blueScore;@JsonKey(name: 'difficulty') int get difficulty;@JsonKey(name: 'topoheight') int get topoheight;
+@JsonKey(name: 'algorithm') String get algorithm;@JsonKey(name: 'miner_work') String get minerWork;@JsonKey(name: 'height') int get height;@JsonKey(name: 'difficulty') int get difficulty;@JsonKey(name: 'topoheight') int get topoheight;
 /// Create a copy of GetMinerWorkResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GetMinerWorkResultCopyWith<GetMinerWorkResult> get copyWith => _$GetMinerWorkRe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetMinerWorkResult&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.minerWork, minerWork) || other.minerWork == minerWork)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetMinerWorkResult&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.minerWork, minerWork) || other.minerWork == minerWork)&&(identical(other.height, height) || other.height == height)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,algorithm,minerWork,blueScore,difficulty,topoheight);
+int get hashCode => Object.hash(runtimeType,algorithm,minerWork,height,difficulty,topoheight);
 
 @override
 String toString() {
-  return 'GetMinerWorkResult(algorithm: $algorithm, minerWork: $minerWork, blueScore: $blueScore, difficulty: $difficulty, topoheight: $topoheight)';
+  return 'GetMinerWorkResult(algorithm: $algorithm, minerWork: $minerWork, height: $height, difficulty: $difficulty, topoheight: $topoheight)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $GetMinerWorkResultCopyWith<$Res>  {
   factory $GetMinerWorkResultCopyWith(GetMinerWorkResult value, $Res Function(GetMinerWorkResult) _then) = _$GetMinerWorkResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'algorithm') String algorithm,@JsonKey(name: 'miner_work') String minerWork,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'topoheight') int topoheight
+@JsonKey(name: 'algorithm') String algorithm,@JsonKey(name: 'miner_work') String minerWork,@JsonKey(name: 'height') int height,@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'topoheight') int topoheight
 });
 
 
@@ -65,11 +65,11 @@ class _$GetMinerWorkResultCopyWithImpl<$Res>
 
 /// Create a copy of GetMinerWorkResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? algorithm = null,Object? minerWork = null,Object? blueScore = null,Object? difficulty = null,Object? topoheight = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? algorithm = null,Object? minerWork = null,Object? height = null,Object? difficulty = null,Object? topoheight = null,}) {
   return _then(_self.copyWith(
 algorithm: null == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable
 as String,minerWork: null == minerWork ? _self.minerWork : minerWork // ignore: cast_nullable_to_non_nullable
-as String,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as int,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,
@@ -157,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'height')  int height, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetMinerWorkResult() when $default != null:
-return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty,_that.topoheight);case _:
+return $default(_that.algorithm,_that.minerWork,_that.height,_that.difficulty,_that.topoheight);case _:
   return orElse();
 
 }
@@ -178,10 +178,10 @@ return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'height')  int height, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)  $default,) {final _that = this;
 switch (_that) {
 case _GetMinerWorkResult():
-return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty,_that.topoheight);case _:
+return $default(_that.algorithm,_that.minerWork,_that.height,_that.difficulty,_that.topoheight);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +198,10 @@ return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'algorithm')  String algorithm, @JsonKey(name: 'miner_work')  String minerWork, @JsonKey(name: 'height')  int height, @JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'topoheight')  int topoheight)?  $default,) {final _that = this;
 switch (_that) {
 case _GetMinerWorkResult() when $default != null:
-return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty,_that.topoheight);case _:
+return $default(_that.algorithm,_that.minerWork,_that.height,_that.difficulty,_that.topoheight);case _:
   return null;
 
 }
@@ -213,12 +213,12 @@ return $default(_that.algorithm,_that.minerWork,_that.blueScore,_that.difficulty
 @JsonSerializable()
 
 class _GetMinerWorkResult implements GetMinerWorkResult {
-  const _GetMinerWorkResult({@JsonKey(name: 'algorithm') required this.algorithm, @JsonKey(name: 'miner_work') required this.minerWork, @JsonKey(name: 'blue_score') required this.blueScore, @JsonKey(name: 'difficulty') required this.difficulty, @JsonKey(name: 'topoheight') required this.topoheight});
+  const _GetMinerWorkResult({@JsonKey(name: 'algorithm') required this.algorithm, @JsonKey(name: 'miner_work') required this.minerWork, @JsonKey(name: 'height') required this.height, @JsonKey(name: 'difficulty') required this.difficulty, @JsonKey(name: 'topoheight') required this.topoheight});
   factory _GetMinerWorkResult.fromJson(Map<String, dynamic> json) => _$GetMinerWorkResultFromJson(json);
 
 @override@JsonKey(name: 'algorithm') final  String algorithm;
 @override@JsonKey(name: 'miner_work') final  String minerWork;
-@override@JsonKey(name: 'blue_score') final  int blueScore;
+@override@JsonKey(name: 'height') final  int height;
 @override@JsonKey(name: 'difficulty') final  int difficulty;
 @override@JsonKey(name: 'topoheight') final  int topoheight;
 
@@ -235,16 +235,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetMinerWorkResult&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.minerWork, minerWork) || other.minerWork == minerWork)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetMinerWorkResult&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm)&&(identical(other.minerWork, minerWork) || other.minerWork == minerWork)&&(identical(other.height, height) || other.height == height)&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,algorithm,minerWork,blueScore,difficulty,topoheight);
+int get hashCode => Object.hash(runtimeType,algorithm,minerWork,height,difficulty,topoheight);
 
 @override
 String toString() {
-  return 'GetMinerWorkResult(algorithm: $algorithm, minerWork: $minerWork, blueScore: $blueScore, difficulty: $difficulty, topoheight: $topoheight)';
+  return 'GetMinerWorkResult(algorithm: $algorithm, minerWork: $minerWork, height: $height, difficulty: $difficulty, topoheight: $topoheight)';
 }
 
 
@@ -255,7 +255,7 @@ abstract mixin class _$GetMinerWorkResultCopyWith<$Res> implements $GetMinerWork
   factory _$GetMinerWorkResultCopyWith(_GetMinerWorkResult value, $Res Function(_GetMinerWorkResult) _then) = __$GetMinerWorkResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'algorithm') String algorithm,@JsonKey(name: 'miner_work') String minerWork,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'topoheight') int topoheight
+@JsonKey(name: 'algorithm') String algorithm,@JsonKey(name: 'miner_work') String minerWork,@JsonKey(name: 'height') int height,@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'topoheight') int topoheight
 });
 
 
@@ -272,11 +272,11 @@ class __$GetMinerWorkResultCopyWithImpl<$Res>
 
 /// Create a copy of GetMinerWorkResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? algorithm = null,Object? minerWork = null,Object? blueScore = null,Object? difficulty = null,Object? topoheight = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? algorithm = null,Object? minerWork = null,Object? height = null,Object? difficulty = null,Object? topoheight = null,}) {
   return _then(_GetMinerWorkResult(
 algorithm: null == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable
 as String,minerWork: null == minerWork ? _self.minerWork : minerWork // ignore: cast_nullable_to_non_nullable
-as String,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as String,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as int,difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
 as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,

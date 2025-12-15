@@ -19,7 +19,7 @@ abstract class Block with _$Block {
     @JsonKey(name: 'difficulty') String? difficulty,
     @JsonKey(name: 'extra_nonce') String? extraNonce,
     @JsonKey(name: 'hash') required String hash,
-    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'height') required int height,
     @JsonKey(name: 'miner') String? miner,
     @JsonKey(name: 'nonce') required int nonce,
     @JsonKey(name: 'reward') int? reward,

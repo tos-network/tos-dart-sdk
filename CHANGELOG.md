@@ -1,3 +1,17 @@
+## 0.29.4
+
+Breaking Changes - BlockDAG terminology migration:
+
+- Rename `getBlueScore()` to `getHeight()` (BlockDAG terminology)
+- Rename `getStableBlueScore()` to `getStableHeight()`
+- Rename `getBlocksAtBlueScore()` to `getBlocksAtHeight()`
+- Rename `GetBlocksAtBlueScoreParams` to `GetBlocksAtHeightParams`
+- Update `Block` field `blueScore` to `height`
+- Update `GetInfoResult` fields `blueScore` to `height`, `stableBlueScore` to `stableHeight`
+- Update all DTO `blueScore` fields to `height` (PeerEntry, GetHardForksResult, GetMinerWorkResult, GetBlockTemplateResult, DevFeeThresholds)
+
+Note: This update aligns with the TOS daemon API migration from GHOSTDAG back to BlockDAG terminology.
+
 ## 0.29.3
 
 Breaking changes - API simplification:

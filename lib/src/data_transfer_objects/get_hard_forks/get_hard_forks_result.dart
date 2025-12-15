@@ -12,7 +12,7 @@ part 'get_hard_forks_result.g.dart';
 abstract class GetHardForksResult with _$GetHardForksResult {
   /// @nodoc
   const factory GetHardForksResult({
-    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'height') required int height,
     @JsonKey(name: 'version') required int version,
     @JsonKey(name: 'changelog') required String changelog,
     @JsonKey(name: 'version_requirement') String? versionRequirement,

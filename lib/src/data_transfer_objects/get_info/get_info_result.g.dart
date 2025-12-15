@@ -10,10 +10,9 @@ part of 'get_info_result.dart';
 
 _GetInfoResult _$GetInfoResultFromJson(Map<String, dynamic> json) =>
     _GetInfoResult(
-      blueScore: (json['blue_score'] as num).toInt(),
+      height: (json['height'] as num).toInt(),
       topoHeight: (json['topoheight'] as num).toInt(),
-      stableHeight: (json['stableheight'] as num?)?.toInt(),
-      stableBlueScore: (json['stable_blue_score'] as num?)?.toInt(),
+      stableHeight: (json['stable_height'] as num?)?.toInt(),
       prunedTopoHeight: (json['pruned_topoheight'] as num?)?.toInt(),
       topBlockHash: json['top_block_hash'] as String,
       circulatingSupply: (json['circulating_supply'] as num?)?.toInt(),
@@ -36,10 +35,9 @@ _GetInfoResult _$GetInfoResultFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$GetInfoResultToJson(_GetInfoResult instance) =>
     <String, dynamic>{
-      'blue_score': instance.blueScore,
+      'height': instance.height,
       'topoheight': instance.topoHeight,
-      'stableheight': instance.stableHeight,
-      'stable_blue_score': instance.stableBlueScore,
+      'stable_height': instance.stableHeight,
       'pruned_topoheight': instance.prunedTopoHeight,
       'top_block_hash': instance.topBlockHash,
       'circulating_supply': instance.circulatingSupply,

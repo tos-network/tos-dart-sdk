@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$GetBlockTemplateResult {
 
-@JsonKey(name: 'difficulty') int get difficulty;@JsonKey(name: 'blue_score') int get blueScore;@JsonKey(name: 'topoheight') int get topoheight;@JsonKey(name: 'template') String get template;@JsonKey(name: 'algorithm') String get algorithm;
+@JsonKey(name: 'difficulty') int get difficulty;@JsonKey(name: 'height') int get height;@JsonKey(name: 'topoheight') int get topoheight;@JsonKey(name: 'template') String get template;@JsonKey(name: 'algorithm') String get algorithm;
 /// Create a copy of GetBlockTemplateResult
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $GetBlockTemplateResultCopyWith<GetBlockTemplateResult> get copyWith => _$GetBlo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetBlockTemplateResult&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight)&&(identical(other.template, template) || other.template == template)&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetBlockTemplateResult&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.height, height) || other.height == height)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight)&&(identical(other.template, template) || other.template == template)&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,difficulty,blueScore,topoheight,template,algorithm);
+int get hashCode => Object.hash(runtimeType,difficulty,height,topoheight,template,algorithm);
 
 @override
 String toString() {
-  return 'GetBlockTemplateResult(difficulty: $difficulty, blueScore: $blueScore, topoheight: $topoheight, template: $template, algorithm: $algorithm)';
+  return 'GetBlockTemplateResult(difficulty: $difficulty, height: $height, topoheight: $topoheight, template: $template, algorithm: $algorithm)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $GetBlockTemplateResultCopyWith<$Res>  {
   factory $GetBlockTemplateResultCopyWith(GetBlockTemplateResult value, $Res Function(GetBlockTemplateResult) _then) = _$GetBlockTemplateResultCopyWithImpl;
 @useResult
 $Res call({
-@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'topoheight') int topoheight,@JsonKey(name: 'template') String template,@JsonKey(name: 'algorithm') String algorithm
+@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'height') int height,@JsonKey(name: 'topoheight') int topoheight,@JsonKey(name: 'template') String template,@JsonKey(name: 'algorithm') String algorithm
 });
 
 
@@ -65,10 +65,10 @@ class _$GetBlockTemplateResultCopyWithImpl<$Res>
 
 /// Create a copy of GetBlockTemplateResult
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? blueScore = null,Object? topoheight = null,Object? template = null,Object? algorithm = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? difficulty = null,Object? height = null,Object? topoheight = null,Object? template = null,Object? algorithm = null,}) {
   return _then(_self.copyWith(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
-as int,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as int,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,template: null == template ? _self.template : template // ignore: cast_nullable_to_non_nullable
 as String,algorithm: null == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable
@@ -157,10 +157,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'height')  int height, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _GetBlockTemplateResult() when $default != null:
-return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template,_that.algorithm);case _:
+return $default(_that.difficulty,_that.height,_that.topoheight,_that.template,_that.algorithm);case _:
   return orElse();
 
 }
@@ -178,10 +178,10 @@ return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'height')  int height, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)  $default,) {final _that = this;
 switch (_that) {
 case _GetBlockTemplateResult():
-return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template,_that.algorithm);case _:
+return $default(_that.difficulty,_that.height,_that.topoheight,_that.template,_that.algorithm);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +198,10 @@ return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'blue_score')  int blueScore, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@JsonKey(name: 'difficulty')  int difficulty, @JsonKey(name: 'height')  int height, @JsonKey(name: 'topoheight')  int topoheight, @JsonKey(name: 'template')  String template, @JsonKey(name: 'algorithm')  String algorithm)?  $default,) {final _that = this;
 switch (_that) {
 case _GetBlockTemplateResult() when $default != null:
-return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template,_that.algorithm);case _:
+return $default(_that.difficulty,_that.height,_that.topoheight,_that.template,_that.algorithm);case _:
   return null;
 
 }
@@ -213,11 +213,11 @@ return $default(_that.difficulty,_that.blueScore,_that.topoheight,_that.template
 @JsonSerializable()
 
 class _GetBlockTemplateResult implements GetBlockTemplateResult {
-  const _GetBlockTemplateResult({@JsonKey(name: 'difficulty') required this.difficulty, @JsonKey(name: 'blue_score') required this.blueScore, @JsonKey(name: 'topoheight') required this.topoheight, @JsonKey(name: 'template') required this.template, @JsonKey(name: 'algorithm') required this.algorithm});
+  const _GetBlockTemplateResult({@JsonKey(name: 'difficulty') required this.difficulty, @JsonKey(name: 'height') required this.height, @JsonKey(name: 'topoheight') required this.topoheight, @JsonKey(name: 'template') required this.template, @JsonKey(name: 'algorithm') required this.algorithm});
   factory _GetBlockTemplateResult.fromJson(Map<String, dynamic> json) => _$GetBlockTemplateResultFromJson(json);
 
 @override@JsonKey(name: 'difficulty') final  int difficulty;
-@override@JsonKey(name: 'blue_score') final  int blueScore;
+@override@JsonKey(name: 'height') final  int height;
 @override@JsonKey(name: 'topoheight') final  int topoheight;
 @override@JsonKey(name: 'template') final  String template;
 @override@JsonKey(name: 'algorithm') final  String algorithm;
@@ -235,16 +235,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetBlockTemplateResult&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.blueScore, blueScore) || other.blueScore == blueScore)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight)&&(identical(other.template, template) || other.template == template)&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetBlockTemplateResult&&(identical(other.difficulty, difficulty) || other.difficulty == difficulty)&&(identical(other.height, height) || other.height == height)&&(identical(other.topoheight, topoheight) || other.topoheight == topoheight)&&(identical(other.template, template) || other.template == template)&&(identical(other.algorithm, algorithm) || other.algorithm == algorithm));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,difficulty,blueScore,topoheight,template,algorithm);
+int get hashCode => Object.hash(runtimeType,difficulty,height,topoheight,template,algorithm);
 
 @override
 String toString() {
-  return 'GetBlockTemplateResult(difficulty: $difficulty, blueScore: $blueScore, topoheight: $topoheight, template: $template, algorithm: $algorithm)';
+  return 'GetBlockTemplateResult(difficulty: $difficulty, height: $height, topoheight: $topoheight, template: $template, algorithm: $algorithm)';
 }
 
 
@@ -255,7 +255,7 @@ abstract mixin class _$GetBlockTemplateResultCopyWith<$Res> implements $GetBlock
   factory _$GetBlockTemplateResultCopyWith(_GetBlockTemplateResult value, $Res Function(_GetBlockTemplateResult) _then) = __$GetBlockTemplateResultCopyWithImpl;
 @override @useResult
 $Res call({
-@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'blue_score') int blueScore,@JsonKey(name: 'topoheight') int topoheight,@JsonKey(name: 'template') String template,@JsonKey(name: 'algorithm') String algorithm
+@JsonKey(name: 'difficulty') int difficulty,@JsonKey(name: 'height') int height,@JsonKey(name: 'topoheight') int topoheight,@JsonKey(name: 'template') String template,@JsonKey(name: 'algorithm') String algorithm
 });
 
 
@@ -272,10 +272,10 @@ class __$GetBlockTemplateResultCopyWithImpl<$Res>
 
 /// Create a copy of GetBlockTemplateResult
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? blueScore = null,Object? topoheight = null,Object? template = null,Object? algorithm = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? difficulty = null,Object? height = null,Object? topoheight = null,Object? template = null,Object? algorithm = null,}) {
   return _then(_GetBlockTemplateResult(
 difficulty: null == difficulty ? _self.difficulty : difficulty // ignore: cast_nullable_to_non_nullable
-as int,blueScore: null == blueScore ? _self.blueScore : blueScore // ignore: cast_nullable_to_non_nullable
+as int,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as int,topoheight: null == topoheight ? _self.topoheight : topoheight // ignore: cast_nullable_to_non_nullable
 as int,template: null == template ? _self.template : template // ignore: cast_nullable_to_non_nullable
 as String,algorithm: null == algorithm ? _self.algorithm : algorithm // ignore: cast_nullable_to_non_nullable

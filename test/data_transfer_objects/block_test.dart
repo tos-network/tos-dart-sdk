@@ -10,7 +10,7 @@ void main() {
         'difficulty': '500000',
         'extra_nonce': 'abcd1234',
         'hash': 'block_hash_123',
-        'blue_score': 12345,
+        'height': 12345,
         'miner': 'miner_address_xyz',
         'nonce': 42,
         'timestamp': 1634567890000,
@@ -27,7 +27,7 @@ void main() {
       expect(block.difficulty, equals('500000'));
       expect(block.extraNonce, equals('abcd1234'));
       expect(block.hash, equals('block_hash_123'));
-      expect(block.blueScore, equals(12345));
+      expect(block.height, equals(12345));
       expect(block.miner, equals('miner_address_xyz'));
       expect(block.nonce, equals(42));
       expect(block.timestamp, equals(1634567890000));
@@ -44,7 +44,7 @@ void main() {
         'difficulty': '500000',
         'extra_nonce': 'abcd1234',
         'hash': 'block_hash_123',
-        'blue_score': 12345,
+        'height': 12345,
         'miner': 'miner_address_xyz',
         'nonce': 42,
         'reward': 1000000,
@@ -77,7 +77,7 @@ void main() {
         difficulty: '500000',
         extraNonce: 'abcd1234',
         hash: 'block_hash_123',
-        blueScore: 12345,
+        height: 12345,
         miner: 'miner_address_xyz',
         nonce: 42,
         timestamp: 1634567890000,
@@ -90,7 +90,7 @@ void main() {
       final json = block.toJson();
 
       expect(json['block_type'], equals('Normal'));
-      expect(json['blue_score'], equals(12345));
+      expect(json['height'], equals(12345));
       expect(json['hash'], equals('block_hash_123'));
       expect(json['miner'], equals('miner_address_xyz'));
     });
@@ -103,7 +103,7 @@ void main() {
           'difficulty': '500000',
           'extra_nonce': 'abcd1234',
           'hash': 'block_hash_$blockType',
-          'blue_score': 12345,
+          'height': 12345,
           'miner': 'miner_address_xyz',
           'nonce': 42,
           'timestamp': 1634567890000,
@@ -125,7 +125,7 @@ void main() {
         difficulty: '500000',
         extraNonce: 'abcd1234',
         hash: 'block_hash_123',
-        blueScore: 12345,
+        height: 12345,
         miner: 'miner_address_xyz',
         nonce: 42,
         timestamp: 1634567890000,
@@ -141,7 +141,7 @@ void main() {
         difficulty: '500000',
         extraNonce: 'abcd1234',
         hash: 'block_hash_123',
-        blueScore: 12345,
+        height: 12345,
         miner: 'miner_address_xyz',
         nonce: 42,
         timestamp: 1634567890000,
@@ -157,7 +157,7 @@ void main() {
         difficulty: '500000',
         extraNonce: 'abcd1234',
         hash: 'different_hash',
-        blueScore: 12345,
+        height: 12345,
         miner: 'miner_address_xyz',
         nonce: 42,
         timestamp: 1634567890000,

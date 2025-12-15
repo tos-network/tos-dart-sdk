@@ -54,27 +54,27 @@ void main() {
 
       expect(info, isNotNull);
       expect(info.network, equals(Network.testnet));
-      expect(info.blueScore, greaterThan(0));
+      expect(info.height, greaterThan(0));
       expect(info.topoHeight, greaterThan(0));
       expect(info.stableHeight, greaterThan(0));
       expect(info.version, isNotEmpty);
       expect(info.topBlockHash, isNotEmpty);
 
       print('Network: ${info.network}');
-      print('Blue Score: ${info.blueScore}');
+      print('Height: ${info.height}');
       print('Topo Height: ${info.topoHeight}');
       print('Stable Height: ${info.stableHeight}');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
-    test('should get blue score from testnet', () async {
+    test('should get height from testnet', () async {
       client.connect();
       await Future<void>.delayed(const Duration(seconds: 1));
 
-      final blueScore = await client.getBlueScore();
+      final height = await client.getHeight();
 
-      expect(blueScore, isNotNull);
-      expect(blueScore, greaterThan(0));
-      print('Blue Score: $blueScore');
+      expect(height, isNotNull);
+      expect(height, greaterThan(0));
+      print('Height: $height');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
     test('should get topoheight from testnet', () async {
@@ -88,15 +88,15 @@ void main() {
       print('Topoheight: $topoheight');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
-    test('should get stable blue score from testnet', () async {
+    test('should get stable height from testnet', () async {
       client.connect();
       await Future<void>.delayed(const Duration(seconds: 1));
 
-      final stableBlueScore = await client.getStableBlueScore();
+      final stableHeight = await client.getStableHeight();
 
-      expect(stableBlueScore, isNotNull);
-      expect(stableBlueScore, greaterThan(0));
-      print('Stable Blue Score: $stableBlueScore');
+      expect(stableHeight, isNotNull);
+      expect(stableHeight, greaterThan(0));
+      print('Stable Height: $stableHeight');
     }, timeout: const Timeout(Duration(seconds: 10)));
 
     test('should get stable topoheight from testnet', () async {

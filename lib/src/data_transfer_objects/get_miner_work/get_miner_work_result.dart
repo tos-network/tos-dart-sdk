@@ -14,7 +14,7 @@ abstract class GetMinerWorkResult with _$GetMinerWorkResult {
   const factory GetMinerWorkResult({
     @JsonKey(name: 'algorithm') required String algorithm,
     @JsonKey(name: 'miner_work') required String minerWork,
-    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'height') required int height,
     @JsonKey(name: 'difficulty') required int difficulty,
     @JsonKey(name: 'topoheight') required int topoheight,
   }) = _GetMinerWorkResult;

@@ -13,7 +13,7 @@ abstract class GetBlockTemplateResult with _$GetBlockTemplateResult {
   /// @nodoc
   const factory GetBlockTemplateResult({
     @JsonKey(name: 'difficulty') required int difficulty,
-    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'height') required int height,
     @JsonKey(name: 'topoheight') required int topoheight,
     @JsonKey(name: 'template') required String template,
     @JsonKey(name: 'algorithm') required String algorithm,

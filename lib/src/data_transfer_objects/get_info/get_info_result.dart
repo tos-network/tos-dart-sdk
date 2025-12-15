@@ -13,10 +13,9 @@ part 'get_info_result.g.dart';
 abstract class GetInfoResult with _$GetInfoResult {
   /// @nodoc
   const factory GetInfoResult({
-    @JsonKey(name: 'blue_score') required int blueScore,
+    @JsonKey(name: 'height') required int height,
     @JsonKey(name: 'topoheight') required int topoHeight,
-    @JsonKey(name: 'stableheight') int? stableHeight,
-    @JsonKey(name: 'stable_blue_score') int? stableBlueScore,
+    @JsonKey(name: 'stable_height') int? stableHeight,
     @JsonKey(name: 'pruned_topoheight') int? prunedTopoHeight,
     @JsonKey(name: 'top_block_hash') required String topBlockHash,
     @JsonKey(name: 'circulating_supply') int? circulatingSupply,

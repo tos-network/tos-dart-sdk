@@ -10,12 +10,12 @@ part of 'get_dev_fee_threshold_result.dart';
 
 _DevFeeThresholds _$DevFeeThresholdsFromJson(Map<String, dynamic> json) =>
     _DevFeeThresholds(
-      blueScore: (json['blue_score'] as num).toInt(),
+      height: (json['height'] as num).toInt(),
       feePercentage: (json['fee_percentage'] as num).toInt(),
     );
 
 Map<String, dynamic> _$DevFeeThresholdsToJson(_DevFeeThresholds instance) =>
     <String, dynamic>{
-      'blue_score': instance.blueScore,
+      'height': instance.height,
       'fee_percentage': instance.feePercentage,
     };

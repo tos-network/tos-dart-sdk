@@ -68,11 +68,11 @@ void main() {
 
       expect(info, isNotNull);
       expect(info.network, equals(Network.testnet));
-      expect(info.blueScore, greaterThan(0));
+      expect(info.height, greaterThan(0));
       expect(info.topoHeight, greaterThan(0));
-      // stableHeight may be null, check stableBlueScore instead
-      if (info.stableBlueScore != null) {
-        expect(info.stableBlueScore, greaterThan(0));
+      // stableHeight may be null
+      if (info.stableHeight != null) {
+        expect(info.stableHeight, greaterThan(0));
       }
       expect(info.version, isNotEmpty);
       expect(info.topBlockHash, isNotEmpty);
@@ -80,7 +80,7 @@ void main() {
       // ignore: avoid_print
       print('Network: ${info.network}');
       // ignore: avoid_print
-      print('Blue Score: ${info.blueScore}');
+      print('Height: ${info.height}');
       // ignore: avoid_print
       print('Topo Height: ${info.topoHeight}');
       // ignore: avoid_print
@@ -88,17 +88,17 @@ void main() {
     }, timeout: const Timeout(Duration(seconds: 10)));
 
     test(
-      'should get blue score from testnet',
+      'should get height from testnet',
       () async {
         client.connect();
         await Future<void>.delayed(const Duration(seconds: 1));
 
-        final blueScore = await client.getBlueScore();
+        final height = await client.getHeight();
 
-        expect(blueScore, isNotNull);
-        expect(blueScore, greaterThan(0));
+        expect(height, isNotNull);
+        expect(height, greaterThan(0));
         // ignore: avoid_print
-        print('Blue Score: $blueScore');
+        print('Height: $height');
       },
       timeout: const Timeout(Duration(seconds: 10)),
     );
@@ -120,17 +120,17 @@ void main() {
     );
 
     test(
-      'should get stable blue score from testnet',
+      'should get stable height from testnet',
       () async {
         client.connect();
         await Future<void>.delayed(const Duration(seconds: 1));
 
-        final stableBlueScore = await client.getStableBlueScore();
+        final stableHeight = await client.getStableHeight();
 
-        expect(stableBlueScore, isNotNull);
-        expect(stableBlueScore, greaterThan(0));
+        expect(stableHeight, isNotNull);
+        expect(stableHeight, greaterThan(0));
         // ignore: avoid_print
-        print('Stable Blue Score: $stableBlueScore');
+        print('Stable Height: $stableHeight');
       },
       timeout: const Timeout(Duration(seconds: 10)),
     );
@@ -161,14 +161,14 @@ void main() {
 
         expect(topBlock, isNotNull);
         expect(topBlock.hash, isNotEmpty);
-        expect(topBlock.blueScore, greaterThan(0));
+        expect(topBlock.height, greaterThan(0));
         expect(topBlock.blockType, isNotEmpty);
         expect(topBlock.timestamp, greaterThan(0));
 
         // ignore: avoid_print
         print('Top Block Hash: ${topBlock.hash}');
         // ignore: avoid_print
-        print('Blue Score: ${topBlock.blueScore}');
+        print('Height: ${topBlock.height}');
         // ignore: avoid_print
         print('Block Type: ${topBlock.blockType}');
       },

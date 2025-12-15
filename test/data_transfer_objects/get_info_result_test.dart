@@ -5,9 +5,9 @@ void main() {
   group('GetInfoResult', () {
     test('should create from valid JSON', () {
       final json = {
-        'blue_score': 100000,
+        'height': 100000,
         'topoheight': 99950,
-        'stableheight': 99900,
+        'stable_height': 99900,
         'top_block_hash': 'top_block_hash_abc123',
         'circulating_supply': 50000000000000,
         'maximum_supply': 100000000000000,
@@ -26,7 +26,7 @@ void main() {
 
       final result = GetInfoResult.fromJson(json);
 
-      expect(result.blueScore, equals(100000));
+      expect(result.height, equals(100000));
       expect(result.topoHeight, equals(99950));
       expect(result.stableHeight, equals(99900));
       expect(result.topBlockHash, equals('top_block_hash_abc123'));
@@ -47,9 +47,9 @@ void main() {
 
     test('should create with optional pruned_topoheight', () {
       final json = {
-        'blue_score': 100000,
+        'height': 100000,
         'topoheight': 99950,
-        'stableheight': 99900,
+        'stable_height': 99900,
         'pruned_topoheight': 50000,
         'top_block_hash': 'top_block_hash_abc123',
         'circulating_supply': 50000000000000,
@@ -74,7 +74,7 @@ void main() {
 
     test('should serialize to JSON correctly', () {
       final result = GetInfoResult(
-        blueScore: 100000,
+        height: 100000,
         topoHeight: 99950,
         stableHeight: 99900,
         topBlockHash: 'top_block_hash_abc123',
@@ -95,9 +95,9 @@ void main() {
 
       final json = result.toJson();
 
-      expect(json['blue_score'], equals(100000));
+      expect(json['height'], equals(100000));
       expect(json['topoheight'], equals(99950));
-      expect(json['stableheight'], equals(99900));
+      expect(json['stable_height'], equals(99900));
       expect(json['network'], equals('Mainnet'));
     });
 
@@ -110,9 +110,9 @@ void main() {
 
       for (final entry in testCases.entries) {
         final json = {
-          'blue_score': 100000,
+          'height': 100000,
           'topoheight': 99950,
-          'stableheight': 99900,
+          'stable_height': 99900,
           'top_block_hash': 'top_block_hash_abc123',
           'circulating_supply': 50000000000000,
           'maximum_supply': 100000000000000,
@@ -138,9 +138,9 @@ void main() {
       // circulating_supply = emitted_supply - burned_supply
       // 50000000000000 = 51000000000000 - 1000000000000
       final json = {
-        'blue_score': 100000,
+        'height': 100000,
         'topoheight': 99950,
-        'stableheight': 99900,
+        'stable_height': 99900,
         'top_block_hash': 'top_block_hash_abc123',
         'circulating_supply': 50000000000000,
         'maximum_supply': 100000000000000,
@@ -174,7 +174,7 @@ void main() {
 
     test('should support equality comparison', () {
       final result1 = GetInfoResult(
-        blueScore: 100000,
+        height: 100000,
         topoHeight: 99950,
         stableHeight: 99900,
         topBlockHash: 'top_block_hash_abc123',
@@ -194,7 +194,7 @@ void main() {
       );
 
       final result2 = GetInfoResult(
-        blueScore: 100000,
+        height: 100000,
         topoHeight: 99950,
         stableHeight: 99900,
         topBlockHash: 'top_block_hash_abc123',
